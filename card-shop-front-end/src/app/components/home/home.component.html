@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Card List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>card ID</th>
+            <th>Card Name</th>
+            <th>Price</th>
+            <th>Sport</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let card of cards | async">
+            <td>{{card.cardId}}</td>
+            <td>{{card.cardName}}</td>
+            <td>{{card.cardPrice}}</td>
+            <td>{{card.cardSport}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
