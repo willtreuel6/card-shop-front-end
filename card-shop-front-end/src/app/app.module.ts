@@ -9,6 +9,18 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdmininventoryComponent } from './components/admininventory/admininventory.component';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem, PrimeIcons} from 'primeng/api';  
+import { ToolbarModule } from 'primeng/toolbar';
+import { ToastModule } from 'primeng/toast';
+import { FileUploadModule } from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
+import { RatingModule } from 'primeng/rating';
+
+
+
 
 
 @NgModule({
@@ -18,12 +30,20 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     InventoryComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent,
+    AdmininventoryComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ToolbarModule,
+    ToastModule,
+    FileUploadModule,
+    TableModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
