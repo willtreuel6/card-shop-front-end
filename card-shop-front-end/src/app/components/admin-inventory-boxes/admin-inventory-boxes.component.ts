@@ -16,7 +16,8 @@ import { BoxService } from 'src/app/services/box.service';
         }
     `
   ],
-  styleUrls: ['./admin-inventory-boxes.component.scss']
+  styleUrls: ['./admin-inventory-boxes.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class AdminInventoryBoxesComponent implements OnInit {
   
@@ -32,8 +33,10 @@ export class AdminInventoryBoxesComponent implements OnInit {
 
   statuses : any[] = [];
 
+  payload : any = {}
 
-  constructor(private boxService : BoxService) { }
+
+  constructor(private boxService : BoxService, private confirmationService : ConfirmationService, private messageService : MessageService) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -45,14 +48,37 @@ export class AdminInventoryBoxesComponent implements OnInit {
   }
 
   openNew(){
-
+    this.payload = {};
+    this.submitted = false;
+    this.boxDialog = true;
   }
 
   deleteSelectedBoxes(){}
 
   editBox(id : number){}
 
-  deleteBox(id : number){}
+  deleteBox(id : number){
+    this.confirmationService.confirm({
+      message: "Are you sure you want to delete?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triangle",
+      accept: ()  => {
+        this.boxService.deleteBox(id).subscribe(data => {
+          console.log(data);
+          this.reloadData();
+        })
+      }
+    })
+  }
+  
+  
+
+  hideDialog(){
+    this.boxDialog = false;
+    this.submitted = false;
+  }
+
+  saveBox(){}
 
 
 }
