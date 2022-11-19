@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdmininventoryComponent } from './admininventory.component';
+import { CardInventoryComponent } from './card-inventory.component';
 
-describe('AdmininventoryComponent', () => {
-  let component: AdmininventoryComponent;
-  let fixture: ComponentFixture<AdmininventoryComponent>;
+describe('CardInventoryComponent', () => {
+  let component: CardInventoryComponent;
+  let fixture: ComponentFixture<CardInventoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdmininventoryComponent ]
+      declarations: [ CardInventoryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdmininventoryComponent);
+    fixture = TestBed.createComponent(CardInventoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,6 +9,8 @@ export class InventoryComponent implements OnInit {
 
   constructor() { }
 
+
+  columns : number = 4;
   ngOnInit(): void {
   }
 
