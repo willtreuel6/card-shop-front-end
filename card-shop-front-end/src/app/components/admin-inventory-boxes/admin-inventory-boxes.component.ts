@@ -23,9 +23,9 @@ export class AdminInventoryBoxesComponent implements OnInit {
   
   boxDialog: boolean = false;
 
-  boxes!: Observable<Box[]>;
+  boxes: Observable<Box[]>;
 
-  box : Box | undefined;
+  box : Box;
 
   selectedBoxes : Box[] = [];
 
@@ -43,7 +43,7 @@ export class AdminInventoryBoxesComponent implements OnInit {
   }
 
   reloadData(){
-    this.boxes = this.boxService.getBoxList();
+    this.boxes = this.boxService.getBoxList()
     console.log(this.boxes);
   }
 
@@ -55,7 +55,11 @@ export class AdminInventoryBoxesComponent implements OnInit {
 
   deleteSelectedBoxes(){}
 
-  editBox(id : number){}
+  editBox(box : Box){
+    this.boxDialog = true;
+    this.boxService.updateBox(box)
+    console.log(box);
+  }
 
   deleteBox(id : number){
     this.confirmationService.confirm({

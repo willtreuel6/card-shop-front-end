@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Box } from '../models/box';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class BoxService {
 
   getBoxList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+    
   }
 
   getBoxById(id : number): Observable<any>{
@@ -29,7 +31,7 @@ export class BoxService {
     return this.http.post(`${this.baseUrl}`, box)
   }
 
-  updateBox(box : Object, id : number) : Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${id}`, box)
+  updateBox(box : Object) : Observable<Object>{
+    return this.http.post(`${this.baseUrl}`, box)
   }
 }

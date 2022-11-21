@@ -1,5 +1,5 @@
 export interface Box{
-    filterGlobal(value: string, stringVal: any): unknown;
+    //filterGlobal(value: string, stringVal: any): unknown;
     boxId : number;
     boxName : string;
     boxBrand :  string;
@@ -7,5 +7,5 @@ export interface Box{
     boxSport : string;
     boxPrice : string;
     boxDescription : string;
-    inStock : boolean;
+    inStock : number;
 }
