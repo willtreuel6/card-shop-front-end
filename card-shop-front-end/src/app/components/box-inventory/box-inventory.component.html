@@ -1,1 +1,7 @@
-<p>box-inventory works!</p>
+<p-dataView #dt [value]="(boxes | async)!">
+    <ng-template let-box pTemplate="listItem">
+        <div>
+            {{box.boxId}}
+        </div>
+    </ng-template>
+</p-dataView>

@@ -43,7 +43,7 @@ export class AdminInventoryBoxesComponent implements OnInit {
   }
 
   reloadData(){
-    this.boxes = this.boxService.getBoxList()
+    this.boxes = this.boxService.getBoxList();
     console.log(this.boxes);
   }
 

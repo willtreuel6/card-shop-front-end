@@ -29,6 +29,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
+import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
+
  
 
 
@@ -44,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     AdminComponent,
     AdminInventoryComponent,
-    AdminInventoryBoxesComponent
+    AdminInventoryBoxesComponent,
+    BoxInventoryComponent
 
 
 
@@ -67,7 +72,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputNumberModule,
     ConfirmDialogModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DataViewModule,
+    ButtonModule
 
   ],
   providers: [],
