@@ -23,6 +23,8 @@ export class AdminInventoryBoxesComponent implements OnInit {
   
   boxDialog: boolean = false;
 
+  newBoxDialog: boolean = false;
+
   boxes: any = {};
   
   @Input('ngModel')
@@ -52,9 +54,9 @@ export class AdminInventoryBoxesComponent implements OnInit {
   }
 
   openNew(){
-    this.payload = {};
+    this.newBoxDialog = true;
     this.submitted = false;
-    this.boxDialog = true;
+    this.box = {}
   }
 
   deleteSelectedBoxes(){}
@@ -100,6 +102,23 @@ export class AdminInventoryBoxesComponent implements OnInit {
       }
     })
     this.boxDialog = false;
+
+  }
+
+  saveNewBox(box : Box){
+    console.log(box);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to create this box?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triangle",
+      accept: ()  => {
+        this.boxService.createBox(box).subscribe(data => {
+          console.log(data);
+          this.reloadData();
+        });
+      }
+    })
+    this.newBoxDialog = false;
 
   }
 }

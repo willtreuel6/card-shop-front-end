@@ -30,7 +30,7 @@
                 <th pSortableColumn="boxBrand" style="min-width:10rem">Brand <p-sortIcon field="boxBrand"></p-sortIcon></th>
                 <th pSortableColumn="boxSport" style="min-width:10rem">Sport <p-sortIcon field="boxSport"></p-sortIcon></th>
                 <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
-                <th pSortableColumn="inStock" style="min-width:10rem">In Stock <p-sortIcon field="inStock"></p-sortIcon></th>
+                <th pSortableColumn="boxInStock" style="min-width:10rem">In Stock <p-sortIcon field="boxInStock"></p-sortIcon></th>
                 <th></th>
             </tr>
         </ng-template>
@@ -82,16 +82,58 @@
                 <label for="boxInStock">In Stock</label>
                 <p-inputNumber id="boxInStock" [(ngModel)]="box.boxInStock"></p-inputNumber>
             </div>
-            <div class="field">
-                <label for="description">Description</label>
-                <div *ngIf="box.boxName"><textarea id="description" pInputTextarea [(ngModel)]="box.boxName" required rows="3" cols="20"></textarea></div>
-            </div>
+        </div>
+        <div class="field">
+            <label for="boxDescription">Box Description</label>
+            <textarea id="boxDescription" pInputTextarea [(ngModel)]="box.boxDescription" required rows="3" cols="20"></textarea>
         </div>
     </ng-template>
 
     <ng-template pTemplate="footer">
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveBox(box)"></button>
+    </ng-template>
+
+
+</p-dialog>
+
+<p-dialog [(visible)]="newBoxDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="boxName">Box Name</label>
+            <input type="text" pInputText id="boxName" [(ngModel)]="box.boxName" required autofocus>
+        </div>
+        <div class="field">
+            <label for="boxBrand">Box Brand</label>
+            <input type="text" pInputText id="boxBrand" [(ngModel)]="box.boxBrand">
+        </div>
+        <div class="field">
+            <label for="boxSport">Box Sport</label>
+            <input type="text" pInputText id="boxSport" [(ngModel)]="box.boxSport">
+        </div>
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="boxYear">Box Year</label>
+                <p-inputNumber id="boxYear" [(ngModel)]="box.boxYear" [useGrouping]="false"></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="price">Price</label>
+                <p-inputNumber id="price" [(ngModel)]="box.boxPrice" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+            </div>
+            <div class="field col">
+                <label for="boxInStock">In Stock</label>
+                <p-inputNumber id="boxInStock" [(ngModel)]="box.boxInStock"></p-inputNumber>
+            </div>
+        </div>
+        <div class="field">
+            <label for="boxDescription">Box Description</label>
+            <textarea id="boxDescription" pInputTextarea [(ngModel)]="box.boxDescription" required rows="3" cols="20"></textarea>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveNewBox(box)"></button>
     </ng-template>
 
 
