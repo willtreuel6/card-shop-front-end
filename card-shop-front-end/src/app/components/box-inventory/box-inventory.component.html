@@ -1,7 +1,32 @@
 <p-dataView #dt [value]="(boxes | async)!">
-    <ng-template let-box pTemplate="listItem">
-        <div>
-            {{box.boxId}}
-        </div>
+    <ng-template let-box pTemplate="gridItem">
+        {{box.boxName}}
     </ng-template>
 </p-dataView>
+
+<div class="card">
+    <p-dataView #dv [value]="(boxes | async)!" [paginator]="true" [rows]="9" filterBy="name"
+        [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+
+        <ng-template let-box pTemplate="gridItem">
+            <div class="col-12 md:col-4">
+                <div class="product-grid-item card">
+                    <div class="product-grid-item-top">
+                        <div>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{box.boxBrand}}</span>
+                        </div>
+                    </div>
+                    <div class="product-grid-item-content">
+                        <img [src]="'assets/showcase/images/demo/product/' + box.image" [alt]="box.boxName">
+                        <div class="product-name">{{box.boxName}}</div>
+                        <div class="product-description">{{box.boxDescription}}</div>
+                     </div>
+                    <div class="product-grid-item-bottom">
+                        <span class="product-price">${{box.boxPrice}}</span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>

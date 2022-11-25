@@ -24,7 +24,7 @@ export class BoxInventoryComponent implements OnInit {
   constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-    this.boxes = this.boxService.getBoxList();
+    //this.boxes = this.boxService.getBoxList();
     console.log(this.boxes);
 
   }

@@ -14,7 +14,7 @@ export class BoxService {
 
   constructor(private http: HttpClient) { }
 
-  getBoxList(): Observable<any> {
+  getBoxList(): Observable<object> {
     return this.http.get(`${this.baseUrl}`);
     
   }

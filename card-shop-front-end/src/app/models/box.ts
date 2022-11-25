@@ -7,5 +7,5 @@ export interface Box{
     boxSport : string;
     boxPrice : string;
     boxDescription : string;
-    inStock : number;
+    boxInStock : number;
 }

@@ -32,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {InputTextarea, InputTextareaModule} from 'primeng/inputtextarea';
  
 
 
@@ -74,7 +75,9 @@ import { BoxInventoryComponent } from './components/box-inventory/box-inventory.
     FormsModule,
     BrowserAnimationsModule,
     DataViewModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    InputTextareaModule
 
   ],
   providers: [],

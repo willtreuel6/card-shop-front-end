@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Box } from 'src/app/models/box';
@@ -23,8 +23,9 @@ export class AdminInventoryBoxesComponent implements OnInit {
   
   boxDialog: boolean = false;
 
-  boxes: Observable<Box[]>;
-
+  boxes: any = {};
+  
+  @Input('ngModel')
   box : Box;
 
   selectedBoxes : Box[] = [];
@@ -43,7 +44,10 @@ export class AdminInventoryBoxesComponent implements OnInit {
   }
 
   reloadData(){
-    this.boxes = this.boxService.getBoxList();
+    this.boxService.getBoxList()
+    .subscribe(res => {
+      this.boxes = res
+    });
     console.log(this.boxes);
   }
 
@@ -57,7 +61,7 @@ export class AdminInventoryBoxesComponent implements OnInit {
 
   editBox(box : Box){
     this.boxDialog = true;
-    this.boxService.updateBox(box)
+    this.box = {...box};
     console.log(box);
   }
 

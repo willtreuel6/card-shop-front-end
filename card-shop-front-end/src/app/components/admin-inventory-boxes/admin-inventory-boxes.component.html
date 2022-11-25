@@ -12,7 +12,7 @@
         </ng-template>
     </p-toolbar>
 
-    <p-table #dt [value]="(boxes | async)!" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" [tableStyle]="{'min-width': '75rem'}"
+    <p-table #dt [value]="boxes" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" [tableStyle]="{'min-width': '75rem'}"
     [(selection)]="selectedBoxes" [rowHover]="true" dataKey="id"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
@@ -25,11 +25,12 @@
                 <th style="width: 4rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th pSortableColumn="boxYear">Year <p-sortIcon field="boxYear"></p-sortIcon></th>
                 <th pSortableColumn="boxName" style="min-width:15rem">Name <p-sortIcon field="boxName"></p-sortIcon></th>
-                <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
+                <th pSortableColumn="boxYear">Year <p-sortIcon field="boxYear"></p-sortIcon></th>
                 <th pSortableColumn="boxBrand" style="min-width:10rem">Brand <p-sortIcon field="boxBrand"></p-sortIcon></th>
-                <th pSortableColumn="inventoryStatus" style="min-width:10rem">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                <th pSortableColumn="boxSport" style="min-width:10rem">Sport <p-sortIcon field="boxSport"></p-sortIcon></th>
+                <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
+                <th pSortableColumn="inStock" style="min-width:10rem">In Stock <p-sortIcon field="inStock"></p-sortIcon></th>
                 <th></th>
             </tr>
         </ng-template>
@@ -38,12 +39,13 @@
                 <td>
                     <p-tableCheckbox [value]="box"></p-tableCheckbox>
                 </td>
-                <td>{{box.boxYear}}</td>
                 <td>{{box.boxName}}</td>
+                <td>{{box.boxYear}}</td>
                 <!--<td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>-->
-                <td>{{box.boxPrice | currency:'USD'}}</td>
                 <td>{{box.boxBrand}}</td>
-                <td>{{box.inStock}}</td>
+                <td>{{box.boxSport}}</td>
+                <td>{{box.boxPrice | currency:'USD'}}</td>
+                <td>{{box.boxInStock}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editBox(box)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteBox(box.boxId)"></button>
@@ -55,20 +57,31 @@
 
 <p-dialog [(visible)]="boxDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
+        <div class="field">
+            <label for="boxName">Box Name</label>
+            <input type="text" pInputText id="boxName" [(ngModel)]="box.boxName" required autofocus>
+        </div>
+        <div class="field">
+            <label for="boxBrand">Box Brand</label>
+            <input type="text" pInputText id="boxBrand" [(ngModel)]="box.boxBrand">
+        </div>
+        <div class="field">
+            <label for="boxSport">Box Sport</label>
+            <input type="text" pInputText id="boxSport" [(ngModel)]="box.boxSport">
+        </div>
         <div class="formgrid grid">
             <div class="field col">
-                <label for="boxName">Box Name</label>
-                <p-inputNumber id="boxName" [(ngModel)]="box.boxName"></p-inputNumber>
+                <label for="boxYear">Box Year</label>
+                <p-inputNumber id="boxYear" [(ngModel)]="box.boxYear" [useGrouping]="false"></p-inputNumber>
             </div>
             <div class="field col">
                 <label for="price">Price</label>
                 <p-inputNumber id="price" [(ngModel)]="box.boxPrice" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
             </div>
             <div class="field col">
-                <label for="boxYear">Box Year</label>
-                <p-inputNumber id="boxYear" [(ngModel)]="box.boxYear"></p-inputNumber>
+                <label for="boxInStock">In Stock</label>
+                <p-inputNumber id="boxInStock" [(ngModel)]="box.boxInStock"></p-inputNumber>
             </div>
-
             <div class="field">
                 <label for="description">Description</label>
                 <div *ngIf="box.boxName"><textarea id="description" pInputTextarea [(ngModel)]="box.boxName" required rows="3" cols="20"></textarea></div>
