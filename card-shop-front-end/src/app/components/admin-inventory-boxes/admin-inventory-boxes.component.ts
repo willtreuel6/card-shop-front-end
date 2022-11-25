@@ -86,7 +86,23 @@ export class AdminInventoryBoxesComponent implements OnInit {
     this.submitted = false;
   }
 
-  saveBox(){}
+  saveBox(box : Box){
+    console.log(box);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to update this box?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triangle",
+      accept: ()  => {
+        this.boxService.updateBox(box).subscribe(data => {
+          console.log(data);
+          this.reloadData();
+        });
+      }
+    })
+    this.boxDialog = false;
 
-
+  }
 }
+
+
+

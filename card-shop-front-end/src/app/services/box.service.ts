@@ -32,6 +32,6 @@ export class BoxService {
   }
 
   updateBox( box : Object) : Observable<Object>{
-    return this.http.post(`${this.baseUrl}`, box)
+    return this.http.put(`${this.baseUrl}`, box)
   }
 }
