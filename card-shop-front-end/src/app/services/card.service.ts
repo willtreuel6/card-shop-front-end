@@ -21,16 +21,16 @@ export class CardService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  deleteBox(id : number) : Observable<any>{
+  deleteCard(id : number) : Observable<any>{
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType : 'text'});
   }
 
-  createBox(box : Box) : Observable<object>{
-    return this.http.post(`${this.baseUrl}`, box);
+  createCard(card : Card) : Observable<object>{
+    return this.http.post(`${this.baseUrl}`, card);
   }
 
-  updateBox(box : Box) : Observable<object>{
-    return this.http.put(`${this.baseUrl}`, box);
+  updateCard(card : Card) : Observable<object>{
+    return this.http.put(`${this.baseUrl}`, card);
   }
 
   

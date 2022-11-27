@@ -16,12 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(private cardService: CardService, private router: Router) { }
 
   ngOnInit(): void {
-    this.reloadData()
     console.log(this.cards)
   }
 
-  reloadData() {
-    this.cards = this.cardService.getCardList()
-  }
 
 }
