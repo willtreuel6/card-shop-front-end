@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Box } from '../models/box';
 import { Card } from '../models/card';
 
 @Injectable({
@@ -12,12 +13,24 @@ export class CardService {
 
   constructor(private http: HttpClient) { }
 
-  getCardList(): Observable<any> {
+  getCardList(): Observable<object> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getCardById(id : number): Observable<any>{
+  getCardById(id : number): Observable<object>{
     return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  deleteBox(id : number) : Observable<any>{
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType : 'text'});
+  }
+
+  createBox(box : Box) : Observable<object>{
+    return this.http.post(`${this.baseUrl}`, box);
+  }
+
+  updateBox(box : Box) : Observable<object>{
+    return this.http.put(`${this.baseUrl}`, box);
   }
 
   
