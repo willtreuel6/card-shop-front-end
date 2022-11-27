@@ -5,5 +5,5 @@ export interface Card{
     cardYear?: number;
     cardSport?: string;
     cardPrice?: string;
-    description?: string;
+    cardDescription?: string;
 }

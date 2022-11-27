@@ -20,7 +20,7 @@ export class AdminInventoryCardsComponent implements OnInit {
   @Input('ngModel')
   card : Card;
 
-  selectedBoxes : Card[] = [];
+  selectedCards : Card[] = [];
 
   submitted : boolean = false;
 
@@ -49,7 +49,7 @@ export class AdminInventoryCardsComponent implements OnInit {
     this.card = {}
   }
 
-  deleteSelectedBoxes(){}
+  deleteSelectedCards(){}
 
   editCard(card : Card){
     this.cardDialog = true;
@@ -78,7 +78,7 @@ export class AdminInventoryCardsComponent implements OnInit {
     this.submitted = false;
   }
 
-  saveBox(card : Card){
+  saveCard(card : Card){
     console.log(card);
     this.confirmationService.confirm({
       message: "Are you sure you want to update this box?",
@@ -95,7 +95,7 @@ export class AdminInventoryCardsComponent implements OnInit {
 
   }
 
-  saveNewBox(card : Card){
+  saveNewCard(card : Card){
     console.log(card);
     this.confirmationService.confirm({
       message: "Are you sure you want to create this box?",

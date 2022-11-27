@@ -34,6 +34,7 @@ import {ButtonModule} from 'primeng/button';
 import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextarea, InputTextareaModule} from 'primeng/inputtextarea';
+import { AdminInventoryCardsComponent } from './components/admin-inventory-cards/admin-inventory-cards.component';
  
 
 
@@ -50,7 +51,8 @@ import {InputTextarea, InputTextareaModule} from 'primeng/inputtextarea';
     AdminComponent,
     AdminInventoryComponent,
     AdminInventoryBoxesComponent,
-    BoxInventoryComponent
+    BoxInventoryComponent,
+    AdminInventoryCardsComponent
 
 
 
