@@ -35,6 +35,8 @@ import { BoxInventoryComponent } from './components/box-inventory/box-inventory.
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextarea, InputTextareaModule} from 'primeng/inputtextarea';
 import { AdminInventoryCardsComponent } from './components/admin-inventory-cards/admin-inventory-cards.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { CheckboxModule } from 'primeng/checkbox';
  
 
 
@@ -52,7 +54,8 @@ import { AdminInventoryCardsComponent } from './components/admin-inventory-cards
     AdminInventoryComponent,
     AdminInventoryBoxesComponent,
     BoxInventoryComponent,
-    AdminInventoryCardsComponent
+    AdminInventoryCardsComponent,
+    AuthComponent
 
 
 
@@ -79,7 +82,8 @@ import { AdminInventoryCardsComponent } from './components/admin-inventory-cards
     DataViewModule,
     ButtonModule,
     InputTextModule,
-    InputTextareaModule
+    InputTextareaModule,
+    CheckboxModule
 
   ],
   providers: [],

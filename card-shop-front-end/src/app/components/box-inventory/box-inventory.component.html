@@ -1,11 +1,11 @@
-<p-dataView #dt [value]="(boxes | async)!">
+<p-dataView #dt [value]="boxes">
     <ng-template let-box pTemplate="gridItem">
         {{box.boxName}}
     </ng-template>
 </p-dataView>
 
 <div class="card">
-    <p-dataView #dv [value]="(boxes | async)!" [paginator]="true" [rows]="9" filterBy="name"
+    <p-dataView #dv [value]="boxes" [paginator]="true" [rows]="9" filterBy="name"
         [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
 
         <ng-template let-box pTemplate="gridItem">

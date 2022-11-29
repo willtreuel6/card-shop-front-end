@@ -12,7 +12,9 @@ import { BoxService } from 'src/app/services/box.service';
 export class BoxInventoryComponent implements OnInit {
 
 
-  boxes : Observable<Box[]>;
+  boxes : any = {};
+
+  box : Box;
 
   sortOrder: number;
 
@@ -24,9 +26,15 @@ export class BoxInventoryComponent implements OnInit {
   constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-    //this.boxes = this.boxService.getBoxList();
-    console.log(this.boxes);
+    this.reloadData();
+  }
 
+  reloadData(){
+    this.boxService.getBoxList()
+    .subscribe(res => {
+      this.boxes = res
+    });
+    console.log(this.boxes);
   }
 
 

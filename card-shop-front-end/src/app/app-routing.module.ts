@@ -5,6 +5,7 @@ import { AdminInventoryBoxesComponent } from './components/admin-inventory-boxes
 import { AdminInventoryCardsComponent } from './components/admin-inventory-cards/admin-inventory-cards.component';
 import { AdminInventoryComponent } from './components/admin-inventory/admin-inventory.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthComponent } from './components/auth/auth.component';
 import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
 import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path : 'about',
     component : AboutComponent
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
   }
   
 ];
