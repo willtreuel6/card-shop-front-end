@@ -37,6 +37,8 @@ import {InputTextarea, InputTextareaModule} from 'primeng/inputtextarea';
 import { AdminInventoryCardsComponent } from './components/admin-inventory-cards/admin-inventory-cards.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import {StyleClassModule} from 'primeng/styleclass';
+import {RippleModule} from 'primeng/ripple';
  
 
 
@@ -83,7 +85,9 @@ import { CheckboxModule } from 'primeng/checkbox';
     ButtonModule,
     InputTextModule,
     InputTextareaModule,
-    CheckboxModule
+    CheckboxModule,
+    StyleClassModule,
+    RippleModule
 
   ],
   providers: [],
