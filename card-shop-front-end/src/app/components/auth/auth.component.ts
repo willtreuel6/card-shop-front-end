@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-auth',
@@ -21,7 +22,7 @@ export class AuthComponent implements OnInit {
   @Input('ngModel')
   admin : Admin;
 
-  constructor(private authService : AuthService, private formbuilder : FormBuilder, private router : Router) { }
+  constructor(private formbuilder : FormBuilder, private router : Router, private authService : AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
@@ -33,21 +34,19 @@ export class AuthComponent implements OnInit {
 
     })
 
+
   }
 
   login(){
-    // console.log(this.admins)
-    // console.log(this.loginForm.value.email)
-    // console.log(this.loginForm.value.password)
+    console.log(this.admins)
+    console.log(this.loginForm.value.email)
+    console.log(this.loginForm.value.password)
+    console.log("clicked")
 
 
-    for(let i in this.admins){
-      if(this.admins[i]["email"] == this.loginForm.value.email && this.admins[i]["pWord"] == this.loginForm.value.password){
-        this.valid = true;
-      }
-    }
+    console.log("hi " + this.authService.login(this.loginForm.value.email, this.loginForm.value.password, this.admins))
 
-    if(this.valid){
+    if(this.authService.login(this.loginForm.value.email, this.loginForm.value.password, this.admins)){
       alert("Login Successful")
       this.loginForm.reset()
       this.router.navigate(["admin"])
