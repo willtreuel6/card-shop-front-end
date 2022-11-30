@@ -1,1 +1,24 @@
-home
+<div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap">
+    <div class="font-bold mr-8">🔥 New Inventory!</div>
+    <div class="align-items-center hidden lg:flex">
+        <span class="line-height-3">View an always up to date list of our shops inventory.</span>
+    </div>
+    <a class="flex align-items-center ml-2 mr-8">
+        <span class="underline font-bold" routerLink="/boxinventory">Learn More</span>
+    </a>
+    <a class="flex align-items-center no-underline justify-content-center border-circle text-gray-100 hover:bg-bluegray-700 cursor-pointer transition-colors transition-duration-150" style="width:2rem; height: 2rem">
+        <i class="pi pi-times"></i>
+    </a>
+</div>
+<div class="relative p-8 overflow-hidden bg-no-repeat bg-cover" style="background-image: url('assets/images/simpleback.jpg')">
+    <div class="text-center my-6 relative">
+        <div class="text-6xl font-bold mb-1 text-white">Find The Best Deals</div>
+        <div class="text-6xl text-blue-400 font-bold mb-4">In Your Area</div>
+        <p class="mt-0 mb-3 line-height-3 text-center mx-auto text-blue-100" style="max-width:500px">To be notified about all of our weekly deals, please enter your email address below to be notified.</p>
+        
+        <div class="flex align-items-center justify-content-center flex-wrap">
+            <input type="text" pInputText class="bg-transparent border-white p-3 mr-3 mt-3" style="border-radius: 40px" size="30" placeholder="Enter your email">
+            <button type="button" label="Notify Me" pButton pRipple class="p-3 mt-3" style="border-radius: 40px"></button>
+        </div>
+    </div>
+</div>
