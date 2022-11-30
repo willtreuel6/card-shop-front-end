@@ -11,6 +11,7 @@ import { CardInventoryComponent } from './components/card-inventory/card-invento
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+// import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent//, canActivate: [AuthGuard]
   },
   {
     path: 'admininventory',
