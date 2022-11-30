@@ -27,7 +27,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
@@ -39,6 +39,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import {StyleClassModule} from 'primeng/styleclass';
 import {RippleModule} from 'primeng/ripple';
+import { FooterComponent } from './components/footer/footer.component';
+
  
 
 
@@ -57,7 +59,8 @@ import {RippleModule} from 'primeng/ripple';
     AdminInventoryBoxesComponent,
     BoxInventoryComponent,
     AdminInventoryCardsComponent,
-    AuthComponent
+    AuthComponent,
+    FooterComponent
 
 
 
@@ -87,7 +90,8 @@ import {RippleModule} from 'primeng/ripple';
     InputTextareaModule,
     CheckboxModule,
     StyleClassModule,
-    RippleModule
+    RippleModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
