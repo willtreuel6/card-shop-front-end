@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/models/card';
+import { BoxService } from 'src/app/services/box.service';
 import { CardService } from 'src/app/services/card.service';
 
 @Component({
@@ -11,13 +12,21 @@ import { CardService } from 'src/app/services/card.service';
 })
 export class HomeComponent implements OnInit {
 
-  cards: Observable<Card[]> | undefined;
+  cards: any = {}
 
-  constructor(private cardService: CardService, private router: Router) { }
+  responsiveOptions : any;
+
+  constructor(private boxService: BoxService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
-    console.log(this.cards)
+    this.boxService.getBoxList().subscribe(res => {
+      this.cards = res
+    });
+
   }
-
-
 }
+
+
+

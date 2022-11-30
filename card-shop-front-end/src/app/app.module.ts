@@ -40,6 +40,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import {StyleClassModule} from 'primeng/styleclass';
 import {RippleModule} from 'primeng/ripple';
 import { FooterComponent } from './components/footer/footer.component';
+import { CarouselModule} from 'primeng/carousel';
 
  
 
@@ -91,7 +92,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CheckboxModule,
     StyleClassModule,
     RippleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule
 
   ],
   providers: [],
