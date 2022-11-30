@@ -12,9 +12,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthComponent implements OnInit {
 
-  admins : any = [];
+  admins : any = {};
 
   public loginForm : FormGroup;
+
+  valid : Boolean = false;
   
   @Input('ngModel')
   admin : Admin;
@@ -25,16 +27,33 @@ export class AuthComponent implements OnInit {
     this.loginForm = this.formbuilder.group({
       email: "",
       password: ""
-    })
-  }
-
-  login(){
-    console.log("Clicked is hit")
+    });
     this.authService.getAdminList().subscribe(res => {
       this.admins = res
 
     })
-    console.log(this.admins)
+
+  }
+
+  login(){
+    // console.log(this.admins)
+    // console.log(this.loginForm.value.email)
+    // console.log(this.loginForm.value.password)
+
+
+    for(let i in this.admins){
+      if(this.admins[i]["email"] == this.loginForm.value.email && this.admins[i]["pWord"] == this.loginForm.value.password){
+        this.valid = true;
+      }
+    }
+
+    if(this.valid){
+      alert("Login Successful")
+      this.loginForm.reset()
+      this.router.navigate(["admin"])
+    }else{
+      alert("Username or password are incorrect")
+    }
 
   }
 
