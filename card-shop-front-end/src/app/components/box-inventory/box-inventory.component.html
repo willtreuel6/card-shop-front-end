@@ -1,32 +1,16 @@
-<p-dataView #dt [value]="boxes">
-    <ng-template let-box pTemplate="gridItem">
-        {{box.boxName}}
-    </ng-template>
-</p-dataView>
 
-<div class="card">
-    <p-dataView #dv [value]="boxes" [paginator]="true" [rows]="9" filterBy="name"
-        [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
-
-        <ng-template let-box pTemplate="gridItem">
-            <div class="col-12 md:col-4">
-                <div class="product-grid-item card">
-                    <div class="product-grid-item-top">
-                        <div>
-                            <i class="pi pi-tag product-category-icon"></i>
-                            <span class="product-category">{{box.boxBrand}}</span>
-                        </div>
-                    </div>
-                    <div class="product-grid-item-content">
-                        <img [src]="'../../../assets/images/topps1.png'" [alt]="box.boxName" height="42" width="50">
-                        <div class="product-name">{{box.boxName}}</div>
-                        <div class="product-description">{{box.boxDescription}}</div>
-                     </div>
-                    <div class="product-grid-item-bottom">
-                        <span class="product-price">${{box.boxPrice}}</span>
-                    </div>
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="grid -mt-3 -ml-3 -mr-3">
+        <div class="col-12 md:col-6 lg:col-4 xl:col-2 border-bottom-1 surface-border md:border-bottom-none">
+            <div class="p-2">
+                <img src="../../../assets/images/topps1.png" class="w-full mb-3" />
+                <div class="text-900 text-xl font-medium mb-2">$140.00</div>
+                <div class="mb-2">
+                    <span class="text-600 line-through">$175.00</span>
+                    <span class="ml-2 text-pink-500 font-medium">%25</span>
                 </div>
+                <span class="text-900">Product Name</span>
             </div>
-        </ng-template>
-    </p-dataView>
+        </div>
+    </div>
 </div>
