@@ -41,6 +41,7 @@ import {StyleClassModule} from 'primeng/styleclass';
 import {RippleModule} from 'primeng/ripple';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarouselModule} from 'primeng/carousel';
+import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
 
  
 
@@ -61,7 +62,8 @@ import { CarouselModule} from 'primeng/carousel';
     BoxInventoryComponent,
     AdminInventoryCardsComponent,
     AuthComponent,
-    FooterComponent
+    FooterComponent,
+    CardInventoryComponent
 
 
 
