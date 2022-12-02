@@ -1,21 +1,16 @@
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
-    <div class="text-900 font-medium text-4xl mb-4">Popular Items</div>
-    <p class="mt-0 p-0 mb-5 text-600 text-2xl">From Brand</p>
 
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
     <div class="grid -mt-3 -ml-3 -mr-3">
-        <div class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0" *ngFor="let card of cards">
-            <div class="p-2" >
-                <div class="relative">
-                    <img src="../../../assets/images/topps1.png" class="w-full" />
-                    <button type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
-                        <i class="pi pi-heart text-2xl text-500"></i>
-                    </button>
+        <div class="col-12 md:col-6 lg:col-4 xl:col-2 border-bottom-1 surface-border md:border-bottom-none"   *ngFor="let card of cards">
+            <div class="p-2">
+                <img src="../../../assets/images/topps1.png" class="w-full mb-3" />
+                <div class="text-900 text-xl font-medium mb-2">{{card.cardPrice}}</div>
+                <div class="text-900 text-xl font-medium mb-2">{{card.cardName}}</div>
+                <div class="mb-2">
+                    <span class="text-600 line-through">$175.00</span>
+                    <span class="ml-2 text-pink-500 font-medium">%25</span>
                 </div>
-                <div class="flex align-items-center justify-content-between mt-3 mb-2">
-                    <span class="text-900 font-medium text-xl">{{card.cardName}}</span>
-                    <span class="text-900 text-xl ml-3">{{card.cardPrice}}</span>
-                </div>
-                <span class="text-600">Black</span>
+                <span class="text-900">Product Name</span>
             </div>
         </div>
     </div>

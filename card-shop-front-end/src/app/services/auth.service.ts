@@ -45,8 +45,6 @@ export class AuthService {
       if(objs[i]["email"] == email && objs[i]["pWord"] == password){
         this.isAuthenticate = true;
         return true;
-      }else{
-        return false;
       }
     }
     return false;
