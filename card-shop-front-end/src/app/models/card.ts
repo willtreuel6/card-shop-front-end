@@ -6,4 +6,5 @@ export interface Card{
     cardSport?: string;
     cardPrice?: string;
     cardDescription?: string;
+    cardImage? : string;
 }

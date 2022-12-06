@@ -8,4 +8,5 @@ export interface Box{
     boxPrice? : number;
     boxDescription? : string;
     boxInStock? : number;
+    boxImage? : string;
 }
