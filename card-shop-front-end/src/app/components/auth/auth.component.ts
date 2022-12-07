@@ -5,11 +5,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
+  providers: [MessageService]
 })
 export class AuthComponent implements OnInit {
 
@@ -22,7 +24,7 @@ export class AuthComponent implements OnInit {
   @Input('ngModel')
   admin : Admin;
 
-  constructor(private formbuilder : FormBuilder, private router : Router, private authService : AuthService) { }
+  constructor(private formbuilder : FormBuilder, private router : Router, private authService : AuthService, private messageService : MessageService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
@@ -47,11 +49,10 @@ export class AuthComponent implements OnInit {
     console.log("hi " + this.authService.login(this.loginForm.value.email, this.loginForm.value.password, this.admins))
 
     if(this.authService.login(this.loginForm.value.email, this.loginForm.value.password, this.admins)){
-      alert("Login Successful")
       this.loginForm.reset()
       this.router.navigate(["admin"])
     }else{
-      alert("Username or password are incorrect")
+      this.messageService.add({key: 'tc', severity:'error', detail: 'Invalid Username or Password'});
     }
 
   }

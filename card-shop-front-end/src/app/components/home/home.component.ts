@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/models/card';
 import { Email } from 'src/app/models/email';
@@ -10,7 +11,8 @@ import { EmailService } from 'src/app/services/email.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
 
@@ -24,7 +26,7 @@ export class HomeComponent implements OnInit {
   responsiveOptions : any;
 
 
-  constructor(private cardService: CardService, private router: Router, private emailService : EmailService) {
+  constructor(private cardService: CardService, private router: Router, private emailService : EmailService, private messageService:MessageService) {
     
    }
 
@@ -38,11 +40,11 @@ export class HomeComponent implements OnInit {
   }
 
   addHomeEmail(email : Email){
+    this.messageService.add({key: 'tc', severity:'success', detail: 'Thank You'});
     this.emailService.addEmail(email).subscribe(res => {
       console.log("service");
-    }
-
-    )
+    });
+    
     console.log(email);
     console.log(this.emailService.showPath());
 }
