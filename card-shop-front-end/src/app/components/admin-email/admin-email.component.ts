@@ -23,7 +23,6 @@ export class AdminEmailComponent implements OnInit {
       this.emails = res
     });
     console.log(this.emails);
-    console.log(this.emailService.)
   }
 
 }
