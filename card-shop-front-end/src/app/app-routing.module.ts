@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { AdminEmailComponent } from './components/admin-email/admin-email.component';
 import { AdminInventoryBoxesComponent } from './components/admin-inventory-boxes/admin-inventory-boxes.component';
 import { AdminInventoryCardsComponent } from './components/admin-inventory-cards/admin-inventory-cards.component';
 import { AdminInventoryComponent } from './components/admin-inventory/admin-inventory.component';
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent
+  },
+  {
+    path: 'adminemail',
+    component: AdminEmailComponent
   }
   
 ];

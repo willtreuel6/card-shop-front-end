@@ -9,7 +9,7 @@ import { Email } from '../models/email';
 export class EmailService {
 
 
-  private baseUrl : "http://localhost:8081/api/email";
+  private baseUrl = "http://localhost:8081/api/email/";
 
   constructor(private http : HttpClient) { }
 
@@ -23,5 +23,9 @@ export class EmailService {
 
   deleteEmail(id : number): Observable<any>{
     return this.http.delete(`${this.baseUrl}/${id}`, {responseType : 'text'})
+  }
+
+  showPath(){
+    return `${this.baseUrl}`
   }
 }

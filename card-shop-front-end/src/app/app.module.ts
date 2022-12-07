@@ -42,6 +42,7 @@ import {RippleModule} from 'primeng/ripple';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarouselModule} from 'primeng/carousel';
 import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
+import { AdminEmailComponent } from './components/admin-email/admin-email.component';
 
  
 
@@ -63,7 +64,8 @@ import { CardInventoryComponent } from './components/card-inventory/card-invento
     AdminInventoryCardsComponent,
     AuthComponent,
     FooterComponent,
-    CardInventoryComponent
+    CardInventoryComponent,
+    AdminEmailComponent
 
 
 
