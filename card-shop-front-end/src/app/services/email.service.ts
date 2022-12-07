@@ -9,19 +9,19 @@ import { Email } from '../models/email';
 export class EmailService {
 
 
-  private baseurl : "http://localhost:8081/api/email";
+  private baseUrl : "http://localhost:8081/api/email";
 
   constructor(private http : HttpClient) { }
 
   getEmailList(): Observable<object>{
-    return this.http.get(`${this.baseurl}`);
+    return this.http.get(`${this.baseUrl}`);
   }
 
   addEmail(email : Email): Observable<object>{
-    return this.http.post(`${this.baseurl}`, email)
+    return this.http.post(`${this.baseUrl}`, email)
   }
 
   deleteEmail(id : number): Observable<any>{
-    return this.http.delete(`${this.baseurl}/${id}`, {responseType : 'text'})
+    return this.http.delete(`${this.baseUrl}/${id}`, {responseType : 'text'})
   }
 }

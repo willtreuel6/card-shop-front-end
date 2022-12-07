@@ -17,9 +17,24 @@
         <p class="mt-0 mb-3 line-height-3 text-center mx-auto text-blue-100" style="max-width:500px">To be notified about all of our weekly deals, please enter your email address below to be notified.</p>
         
         <div class="flex align-items-center justify-content-center flex-wrap">
-            <input type="text" pInputText class="bg-transparent border-white p-3 mr-3 mt-3" style="border-radius: 40px" size="30" placeholder="Enter your email">
-            <button type="button" label="Notify Me" pButton pRipple class="p-3 mt-3" style="border-radius: 40px"></button>
+            <input type="text" pInputText id="emailAddress" class="bg-transparent border-white p-3 mr-3 mt-3" style="border-radius: 40px" size="30" [(ngModel)]="email.emailAddress" placeholder="Enter your email">
+            <button type="button" label="Notify Me" pButton pRipple class="p-3 mt-3" style="border-radius: 40px" (click)="addHomeEmail(email)"></button>
         </div>
     </div>
 </div>
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="grid -mt-3 -ml-3 -mr-3">
+        <div class="col-12 md:col-6 lg:col-4 xl:col-2 border-bottom-1 surface-border md:border-bottom-none"    *ngFor="let card of cards.slice(0,6);">
+            <div class="p-2">
+                <img src="../../../assets/images/topps1.png" class="w-full mb-3" />
+                <div class="text-900 text-xl font-medium mb-2">{{card.cardName}}</div>
+                <div class="text-900 text-xl font-medium mb-2">{{card.cardBrand}}</div>
+                <div class="mb-2">
+                    <span class="text-600">{{card.cardPrice}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
