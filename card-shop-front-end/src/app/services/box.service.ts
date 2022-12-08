@@ -8,14 +8,16 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BoxService {
+
+  
   
   
   private baseUrl = "http://localhost:8081/api/box";
 
   constructor(private http: HttpClient) { }
 
-  getBoxList(): Observable<object> {
-    return this.http.get(`${this.baseUrl}`);
+  getBoxList(): Observable<Box[]> {
+    return this.http.get<Box[]>(`${this.baseUrl}`);
     
   }
 

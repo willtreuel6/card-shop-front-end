@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from 'src/app/models/contact';
+import { AdminControlsService } from 'src/app/services/admin-controls.service';
 
 @Component({
   selector: 'app-admin-controls',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminControlsComponent implements OnInit {
 
-  constructor() { }
+  contactInfo : any = {};
+  constructor(private adminControlsService : AdminControlsService) { }
 
   ngOnInit(): void {
+    this.adminControlsService.getContact()
+    .subscribe(res => {
+      console.log(res)
+      this.contactInfo = res
+    });
+
   }
 
 }

@@ -1,1 +1,28 @@
-<p>admin-controls works!</p>
+<p-table [value]="contactInfo">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="min-width:15rem">Contact Description</th>
+            <th>Contact Address</th>
+            <th style="min-width:10rem">Contact Email</th>
+            <th style="min-width:10rem">Contact Number</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contactInfo>
+        <tr>
+            <td>{{contactInfo.contactDescription}}</td>
+            <td>{{contactInfo.contactAddress}}</td>
+            <td>{{contactInfo.contactEmail}}</td>
+            <td>{{contactInfo.contactNumber}}</td>
+
+            <!-- <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editBox(box)"></button>
+            </td> -->
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
+
+

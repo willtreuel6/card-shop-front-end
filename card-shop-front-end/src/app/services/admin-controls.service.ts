@@ -12,8 +12,12 @@ export class AdminControlsService {
 
   constructor(private http : HttpClient) { }
 
-  getContactById(id : number): Observable<any>{
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getContactById(id : any){
+    return this.http.get<Contact>(`${this.baseUrl}/${id}`);
+  }
+
+  getContact(): Observable<object>{
+    return this.http.get(`${this.baseUrl}`);
   }
 
   updateContact(contact : Object): Observable<object>{
