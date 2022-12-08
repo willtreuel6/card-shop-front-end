@@ -43,6 +43,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CarouselModule} from 'primeng/carousel';
 import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
 import { AdminEmailComponent } from './components/admin-email/admin-email.component';
+import { AdminControlsComponent } from './components/admin-controls/admin-controls.component';
 
  
 
@@ -65,7 +66,8 @@ import { AdminEmailComponent } from './components/admin-email/admin-email.compon
     AuthComponent,
     FooterComponent,
     CardInventoryComponent,
-    AdminEmailComponent
+    AdminEmailComponent,
+    AdminControlsComponent
 
 
 

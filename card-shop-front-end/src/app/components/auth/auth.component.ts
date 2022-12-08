@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
   @Input('ngModel')
   admin : Admin;
 
-  constructor(private formbuilder : FormBuilder, private router : Router, private authService : AuthService, private messageService : MessageService) { }
+  constructor(private formbuilder : FormBuilder, private router : Router, private authService : AuthService,private messageService : MessageService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
