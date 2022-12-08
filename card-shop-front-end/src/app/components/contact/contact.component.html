@@ -1,10 +1,9 @@
 <div>
     <div class="surface-section px-4 py-8 md:px-6 lg:px-8">
-        <div class="grid">
+        <div class="grid" *ngFor="let info of contactInfoSet">
             <div class="col-12 lg:col-6">
                 <div class="text-900 text-2xl font-bold mb-4">GET IN TOUCH</div>
-                <p class="text-700 line-height-3 pr-0 lg:pr-5">Please feel free to reach out and speak to a member of our team. The best way to reach us would be by either phone or email.
-                     If you are close and would like to just drop in to see us, you can find our location below.
+                <p class="text-700 line-height-3 pr-0 lg:pr-5">{{info.contactDescription}}
                 </p>
             </div>
             <div class="col-12 md:col-4 lg:col-2">
@@ -16,7 +15,7 @@
                     </div>
                     <div>
                         <span class="text-2xl text-900 mb-2 font-medium">Address</span>
-                        <p class="text-700 line-height-3">356 A Islington St, Portsmouth, NH 03801</p>
+                        <p class="text-700 line-height-3">{{info.contactAddress}}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +28,7 @@
                     </div>
                     <div>
                         <span class="text-2xl text-900 mb-2 font-medium">Email</span>
-                        <p class="text-700 line-height-3">willtreuel6@gmail.com</p>
+                        <p class="text-700 line-height-3">{{info.contactEmail}}</p>
                     </div>
                 </div>
             </div>
@@ -42,7 +41,7 @@
                     </div>
                     <div>
                         <span class="text-2xl text-900 mb-2 font-medium">Phone</span>
-                        <p class="text-700 line-height-3">(603)998-6741</p>
+                        <p class="text-700 line-height-3">{{info.contactNumber}}</p>
                     </div>
                 </div>
             </div>
