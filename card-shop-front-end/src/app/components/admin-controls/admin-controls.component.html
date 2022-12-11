@@ -171,6 +171,24 @@
     </ng-template>
 </p-table>
 
+<p-dialog [(visible)]="footerInfoDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="footerBold">Footer Bold Text</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="footerInfo.footerBold" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">Footer Text</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="footerInfo.footerText" required rows="3" cols="20"></textarea>
+        </div>     
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideFooterDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveFooterInfo(footerInfo)"></button>
+    </ng-template>
+</p-dialog>
+
 
 
     <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

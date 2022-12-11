@@ -27,7 +27,7 @@ export class AdminControlsComponent implements OnInit {
 
   homeInfo : Home;
 
-  footerInfo : Footer;
+  footerInfo : any;
 
   contactInfoDialog : boolean = false;
 
@@ -177,6 +177,7 @@ export class AdminControlsComponent implements OnInit {
         })
       }
     })
+    this.footerInfoDialog = false;
   }
 
 }
