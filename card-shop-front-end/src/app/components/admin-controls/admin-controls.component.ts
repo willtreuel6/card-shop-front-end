@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { About } from 'src/app/models/about';
 import { Contact } from 'src/app/models/contact';
+import { Home } from 'src/app/models/home';
 import { AdminControlsService } from 'src/app/services/admin-controls.service';
 
 @Component({
@@ -16,13 +17,19 @@ export class AdminControlsComponent implements OnInit {
 
   aboutInfoSet : any = {};
 
+  homeInfoSet : any = {};
+
   contactInfo : Contact;
 
   aboutInfo : About;
 
+  homeInfo : Home;
+
   contactInfoDialog : boolean = false;
 
   aboutInfoDialog : boolean = false;
+
+  homeInfoDialog : boolean = false;
 
   constructor(private adminControlsService : AdminControlsService, private confirmationService : ConfirmationService) { }
 
@@ -43,6 +50,12 @@ export class AdminControlsComponent implements OnInit {
       console.log("About " + data)
       this.aboutInfoSet = data;
     })
+
+    this.adminControlsService.getHome()
+    .subscribe(homeD => {
+      console.log("Home : " + homeD)
+      this.homeInfoSet = homeD;
+    })
   }
 
 
@@ -58,6 +71,12 @@ export class AdminControlsComponent implements OnInit {
     console.log(aboutInfo);
   }
 
+  editHome(homeInfo : object){
+    this.homeInfoDialog = true;
+    this.homeInfo = {...homeInfo};
+    console.log(homeInfo);
+  }
+
   hideContactDialog(){
     this.contactInfoDialog = false;
 
@@ -65,6 +84,10 @@ export class AdminControlsComponent implements OnInit {
 
   hideAboutDialog(){
     this.aboutInfoDialog = false;
+  }
+
+  hideHomeDialog(){
+    this.homeInfoDialog = false;
   }
 
   saveContactInfo(info : any){
@@ -99,6 +122,23 @@ export class AdminControlsComponent implements OnInit {
       }
     })
     this.aboutInfoDialog = false;
+  }
+
+  saveHomeInfo(info : any){
+    console.log(info);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to change the about page?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triengle",
+      accept: () => {
+        this.adminControlsService.updateHome(info).subscribe(homeD => {
+          console.log("Inside Home");
+          console.log(homeD);
+          this.reloadData();
+        })
+      }
+    })
+    this.homeInfoDialog = false;
   }
 
 }
