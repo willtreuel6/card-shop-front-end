@@ -3,6 +3,7 @@
 <p-table [value]="contactInfoSet">
     <ng-template pTemplate="header">
         <tr>
+            <th style="min-width:15rem">CONTACT PAGE</th>
             <th style="min-width:15rem">Contact Description</th>
             <th style="min-width:10rem">Contact Address</th>
             <th style="min-width:10rem">Contact Email</th>
@@ -12,6 +13,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-contactInfo>
         <tr>
+            <td></td>
             <td>{{contactInfo.contactDescription}}</td>
             <td>{{contactInfo.contactAddress}}</td>
             <td>{{contactInfo.contactEmail}}</td>
@@ -57,6 +59,7 @@
 <p-table [value]="aboutInfoSet">
     <ng-template pTemplate="header">
          <tr>
+            <th style="min-width:15rem">ABOUT PAGE</th>
             <th style="min-width:15rem">About Title</th>
             <th style="min-width:10rem">About Description</th>
             <th></th>
@@ -64,6 +67,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-aboutInfo>
         <tr>
+            <td></td>
             <td>{{aboutInfo.aboutName}}</td>
             <td>{{aboutInfo.aboutDescription}}</td>
     
@@ -96,6 +100,7 @@
 <p-table [value]="homeInfoSet">
     <ng-template pTemplate="header">
          <tr>
+            <th style="min-width:15rem">HOME PAGE</th>
             <th style="min-width:15rem">Home Bold Banner</th>
             <th style="min-width:10rem">Home Banner Text</th>
             <th style="min-width:10rem">Home Title</th>
@@ -105,6 +110,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-homeInfo>
         <tr>
+            <td></td>
             <td>{{homeInfo.homeBannerBold}}</td>
             <td>{{homeInfo.homeBannerText}}</td>
             <td>{{homeInfo.homeTitle}}</td>
