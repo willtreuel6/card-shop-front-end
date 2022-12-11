@@ -13,6 +13,8 @@ export class AdminControlsService {
 
   private aboutUrl = 'http://localhost:8081/api/about';
 
+  private homeUrl = 'http://localhost:8081/api/home';
+
   constructor(private http : HttpClient) { }
 
   getContactById(id : any){
@@ -37,5 +39,13 @@ export class AdminControlsService {
 
   updateAbout(about : Object): Observable<object>{
     return this.http.put(`${this.aboutUrl}`, about);
+  }
+
+  getHome(): Observable<object>{
+    return this.http.get(`${this.homeUrl}`);
+  }
+
+  updateHome(home : object): Observable<object>{
+    return this.http.put(`${this.homeUrl}`, home);
   }
 }
