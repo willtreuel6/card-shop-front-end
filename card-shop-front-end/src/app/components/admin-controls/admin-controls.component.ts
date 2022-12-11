@@ -34,14 +34,14 @@ export class AdminControlsComponent implements OnInit {
   reloadData(){
     this.adminControlsService.getContact()
     .subscribe(res => {
-      console.log(res)
+      console.log("Contact : " + res)
       this.contactInfoSet = res;
     });
 
     this.adminControlsService.getAbout()
-    .subscribe(res => {
-      console.log(res)
-      this.aboutInfoSet = res;
+    .subscribe(data => {
+      console.log("About " + data)
+      this.aboutInfoSet = data;
     })
   }
 
@@ -87,7 +87,7 @@ export class AdminControlsComponent implements OnInit {
   saveAboutInfo(info : any){
     console.log(info);
     this.confirmationService.confirm({
-      message: "Are you sure you want to change the contact page?",
+      message: "Are you sure you want to change the about page?",
       header: "Confirm",
       icon: "pi pi-exclamation-triengle",
       accept: () => {
