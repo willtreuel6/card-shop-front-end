@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { About } from 'src/app/models/about';
 import { Contact } from 'src/app/models/contact';
 import { AdminControlsService } from 'src/app/services/admin-controls.service';
 
@@ -13,9 +14,15 @@ export class AdminControlsComponent implements OnInit {
 
   contactInfoSet : any = {};
 
+  aboutInfoSet : any = {};
+
   contactInfo : Contact;
 
+  aboutInfo : About;
+
   contactInfoDialog : boolean = false;
+
+  aboutInfoDialog : boolean = false;
 
   constructor(private adminControlsService : AdminControlsService, private confirmationService : ConfirmationService) { }
 
@@ -28,8 +35,14 @@ export class AdminControlsComponent implements OnInit {
     this.adminControlsService.getContact()
     .subscribe(res => {
       console.log(res)
-      this.contactInfoSet = res
+      this.contactInfoSet = res;
     });
+
+    this.adminControlsService.getAbout()
+    .subscribe(res => {
+      console.log(res)
+      this.aboutInfoSet = res;
+    })
   }
 
 
@@ -39,9 +52,19 @@ export class AdminControlsComponent implements OnInit {
     console.log(contactInfo);
   }
 
-  hideDialog(){
+  editAbout(aboutInfo : object){
+    this.aboutInfoDialog = true;
+    this.aboutInfo = {...aboutInfo};
+    console.log(aboutInfo);
+  }
+
+  hideContactDialog(){
     this.contactInfoDialog = false;
 
+  }
+
+  hideAboutDialog(){
+    this.aboutInfoDialog = false;
   }
 
   saveContactInfo(info : any){
@@ -59,6 +82,23 @@ export class AdminControlsComponent implements OnInit {
       }
     })
     this.contactInfoDialog = false;
+  }
+
+  saveAboutInfo(info : any){
+    console.log(info);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to change the contact page?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triengle",
+      accept: () => {
+        this.adminControlsService.updateAbout(info).subscribe(data => {
+          console.log("Inside about");
+          console.log(data);
+          this.reloadData();
+        })
+      }
+    })
+    this.aboutInfoDialog = false;
   }
 
 }
