@@ -15,6 +15,8 @@ export class AdminControlsService {
 
   private homeUrl = 'http://localhost:8081/api/home';
 
+  private footerUrl = 'http://localhost:8081/api/footer';
+
   constructor(private http : HttpClient) { }
 
   getContactById(id : any){
@@ -47,5 +49,13 @@ export class AdminControlsService {
 
   updateHome(home : object): Observable<object>{
     return this.http.put(`${this.homeUrl}`, home);
+  }
+
+  getFooter() : Observable<object>{
+    return this.http.get(`${this.footerUrl}`);
+  }
+
+  updateFooter(footer : object) : Observable<object>{
+    return this.http.put(`${this.footerUrl}`, footer);
   }
 }
