@@ -1,7 +1,6 @@
-<div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-    <div class="font-bold text-900 text-5xl mb-3 text-center">Meet the Team</div>
-    <div class="text-xl line-height-3 text-600 mb-6 text-center">Hello and welcome to our website, we are thrilled that you have landed here and are browsing around our shop,
-        please join us in our passion for sport trading cards. Ever since we were kids we loved collecting cards and busting open packs of cards. 
+<div class="surface-ground px-4 py-8 md:px-6 lg:px-8" *ngFor="let info of aboutInfoSet">
+    <div class="font-bold text-900 text-5xl mb-3 text-center">{{info.aboutName}}</div>
+    <div class="text-xl line-height-3 text-600 mb-6 text-center">{{info.aboutDescription}}
     </div>
 
     <div class="flex justify-content-center flex-column lg:flex-row">
