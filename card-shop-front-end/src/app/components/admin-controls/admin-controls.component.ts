@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, Footer, MessageService } from 'primeng/api';
 import { About } from 'src/app/models/about';
 import { Contact } from 'src/app/models/contact';
 import { Home } from 'src/app/models/home';
@@ -19,17 +19,23 @@ export class AdminControlsComponent implements OnInit {
 
   homeInfoSet : any = {};
 
+  footerInfoSet : any = {};
+
   contactInfo : Contact;
 
   aboutInfo : About;
 
   homeInfo : Home;
 
+  footerInfo : Footer;
+
   contactInfoDialog : boolean = false;
 
   aboutInfoDialog : boolean = false;
 
   homeInfoDialog : boolean = false;
+
+  footerInfoDialog : boolean = false;
 
   constructor(private adminControlsService : AdminControlsService, private confirmationService : ConfirmationService) { }
 
@@ -56,6 +62,12 @@ export class AdminControlsComponent implements OnInit {
       console.log("Home : " + homeD)
       this.homeInfoSet = homeD;
     })
+
+    this.adminControlsService.getFooter()
+    .subscribe(footerD => {
+      console.log(footerD);
+      this.footerInfoSet = footerD;
+    })
   }
 
 
@@ -77,6 +89,12 @@ export class AdminControlsComponent implements OnInit {
     console.log(homeInfo);
   }
 
+  editFooter(footerInfo : object){
+    this.footerInfoDialog = true;
+    this.footerInfo = {...footerInfo}
+    console.log(footerInfo);
+  }
+
   hideContactDialog(){
     this.contactInfoDialog = false;
 
@@ -88,6 +106,10 @@ export class AdminControlsComponent implements OnInit {
 
   hideHomeDialog(){
     this.homeInfoDialog = false;
+  }
+
+  hideFooterDialog(){
+    this.footerInfoDialog = false;
   }
 
   saveContactInfo(info : any){
@@ -139,6 +161,22 @@ export class AdminControlsComponent implements OnInit {
       }
     })
     this.homeInfoDialog = false;
+  }
+
+  saveFooterInfo(info : any){
+    console.log(info);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to change the footer page?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triengle",
+      accept: () => {
+        this.adminControlsService.updateFooter(info).subscribe(footerD => {
+          console.log("Inside Footer");
+          console.log(footerD);
+          this.reloadData();
+        })
+      }
+    })
   }
 
 }

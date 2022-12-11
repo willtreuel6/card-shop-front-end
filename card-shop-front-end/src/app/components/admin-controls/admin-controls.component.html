@@ -149,6 +149,30 @@
     </ng-template>
 </p-dialog>
 
+<p-table [value]="footerInfoSet">
+    <ng-template pTemplate="header">
+         <tr>
+            <th style="min-width:15rem">FOOTER</th>
+            <th style="min-width:15rem">Footer Bold</th>
+            <th style="min-width:10rem">Footer Text</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-footerInfo>
+        <tr>
+            <td></td>
+            <td>{{footerInfo.footerBold}}</td>
+            <td>{{footerInfo.footerText}}</td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editFooter(footerInfo)"></button>
+            </td>
+                
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
     <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
 
 
