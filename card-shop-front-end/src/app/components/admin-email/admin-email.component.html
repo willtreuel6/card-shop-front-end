@@ -1,9 +1,15 @@
-<p-table [value]="emails" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="10" styleClass="p-datatable-lg" >
-    <ng-template pTemplate="header" >
+<p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
         <tr>
-            <th style="text-align:center">Email List</th>
+            <h1>Email List</h1>
         </tr>
     </ng-template>
+
+    <ng-template pTemplate="right">
+        <button pButton pRipple label="Download Emails" icon="pi pi-download" class="p-button-help" type="button" (click)="fileDownload()"></button>
+    </ng-template>
+</p-toolbar>
+<p-table [value]="emails" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="10" styleClass="p-datatable-lg" >
     <ng-template pTemplate="body" let-email>
         <tr>
             <td style="text-align:center">{{email.emailAddress}}</td>
