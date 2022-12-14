@@ -3,5 +3,6 @@ export interface Home{
     homeBannerBold? : string;
     homeBannerText? : string;
     homeTitle? : string;
+    homeTitleTwo? : string;
     homeDescription? : string;
 }

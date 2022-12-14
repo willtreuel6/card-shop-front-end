@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/models/card';
 import { Email } from 'src/app/models/email';
+import { AdminControlsService } from 'src/app/services/admin-controls.service';
 import { BoxService } from 'src/app/services/box.service';
 import { CardService } from 'src/app/services/card.service';
 import { EmailService } from 'src/app/services/email.service';
@@ -25,11 +26,13 @@ export class HomeComponent implements OnInit {
   @Input('ngModel')
   email : Email = {};
 
+  adminControls : any = [];
+
   responsiveOptions : any;
 
 
   constructor(private cardService: CardService, private router: Router, private emailService : EmailService, private messageService:MessageService, 
-    private boxService : BoxService) {
+    private boxService : BoxService, private adminService: AdminControlsService) {
     
    }
 
@@ -44,6 +47,14 @@ export class HomeComponent implements OnInit {
     .subscribe(data => { 
       this.boxes = data;
     })
+
+    this.adminService.getHome()
+    .subscribe(homeD => {
+      this.adminControls = homeD;
+      console.log(homeD);
+    })
+
+
 
   }
 

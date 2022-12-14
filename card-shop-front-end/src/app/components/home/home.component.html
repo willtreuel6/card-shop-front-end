@@ -11,11 +11,11 @@
     </a>
 
 </div>
-<div class="relative p-8 overflow-hidden bg-no-repeat bg-cover" >
+<div class="relative p-8 overflow-hidden bg-no-repeat bg-cover" *ngFor="let home of adminControls">
     <div class="text-center my-6 relative">
-        <div class="text-6xl font-bold mb-1 text-white">Find The Best Deals</div>
-        <div class="text-6xl text-blue-400 font-bold mb-4">In Your Area</div>
-        <p class="mt-0 mb-3 line-height-3 text-center mx-auto text-blue-100" style="max-width:500px">To be notified about all of our weekly deals, please enter your email address below to be notified.</p>
+        <div class="text-6xl font-bold mb-1 text-white">{{home.homeTitle}}</div>
+        <div class="text-6xl text-blue-400 font-bold mb-4">{{home.homeTitleTwo}}</div>
+        <p class="mt-0 mb-3 line-height-3 text-center mx-auto text-blue-100" style="max-width:500px">{{home.homeDescription}}</p>
         
         <div class="flex align-items-center justify-content-center flex-wrap">
             <input type="text" pInputText id="emailAddress" class=" border-white p-3 mr-3 mt-3" style="border-radius: 40px" size="30" [(ngModel)]="email.emailAddress" placeholder="Enter your email">
@@ -30,15 +30,13 @@
         <div class="product-item">
             <div class="product-item-content" style="background-color: aliceblue;">
                 <div class="mb-3">
-                    <img src="../../../assets/images/topps1.png" [alt]="card.cardName" class="product-image" />
+                    <img src="{{card.cardImage}}" [alt]="card.Name" class="product-image" />
                 </div>
                 <div>
                     <h4 class="mb-1">{{card.cardName}}</h4>
                     <h6 class="mt-0 mb-3">${{card.cardPrice}}</h6>
                     <div class="car-buttons mt-5">
-                        <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search"></p-button>
-                        <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-star-fill"></p-button>
-                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+                        <button pButton pRipple label="View Inventory" class="p-button font-bold" routerLink="/cardinventory"></button>
                     </div>
                 </div>
             </div>

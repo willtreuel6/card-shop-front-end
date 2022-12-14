@@ -104,6 +104,7 @@
             <th style="min-width:15rem">Home Bold Banner</th>
             <th style="min-width:10rem">Home Banner Text</th>
             <th style="min-width:10rem">Home Title</th>
+            <th style="min-width:10rem">Home Title Two</th>
             <th style="min-width:10rem">Home Description</th>
             <th></th>
         </tr>
@@ -114,6 +115,7 @@
             <td>{{homeInfo.homeBannerBold}}</td>
             <td>{{homeInfo.homeBannerText}}</td>
             <td>{{homeInfo.homeTitle}}</td>
+            <td>{{homeInfo.homeTitleTwo}}</td>
             <td>{{homeInfo.homeDescription}}</td>
             <td>
                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editHome(homeInfo)"></button>
@@ -136,7 +138,11 @@
         <div class="field">
             <label for="homeTitle">Home Title</label>
             <textarea id="homeTitle" pInputTextarea [(ngModel)]="homeInfo.homeTitle" required rows="3" cols="20"></textarea>
-        </div>     
+        </div>   
+        <div class="field">
+            <label for="homeTitleTwo">Home Title "Two"</label>
+            <textarea id="homeTitleTwo" pInputTextarea [(ngModel)]="homeInfo.homeTitleTwo" required rows="3" cols="20"></textarea>
+        </div>    
         <div class="field">
             <label for="homeDescription">Home Description</label>
             <textarea id="homeDescription" pInputTextarea [(ngModel)]="homeInfo.homeDescription" required rows="3" cols="20"></textarea>
