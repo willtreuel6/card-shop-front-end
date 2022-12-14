@@ -7,7 +7,7 @@ import { BoxService } from 'src/app/services/box.service';
 @Component({
   selector: 'app-box-inventory',
   templateUrl: './box-inventory.component.html',
-  styleUrls: ['./box-inventory.component.css']
+  styleUrls: ['./box-inventory.component.scss']
 })
 export class BoxInventoryComponent implements OnInit {
 
@@ -16,11 +16,13 @@ export class BoxInventoryComponent implements OnInit {
 
   box : Box;
 
+  sortOptions: SelectItem[];
+
   sortOrder: number;
 
   sortField: string;
 
-  sortOptions: SelectItem[];
+  sortKey : string;
 
 
   constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig) { }
@@ -35,6 +37,19 @@ export class BoxInventoryComponent implements OnInit {
       this.boxes = res
     });
     console.log(this.boxes);
+  }
+
+  onSortChange(event : any){
+    let value = event.value;
+    console.log(value);
+
+    if(value.indexOf('!') === 0) {
+      this.sortOrder = -1;
+      this.sortField = value.substring(1, value.length);
+    }else{
+      this.sortOrder = 1;
+      this.sortField = value;
+    }
   }
 
 
