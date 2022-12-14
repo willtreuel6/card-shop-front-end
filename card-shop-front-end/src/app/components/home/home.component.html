@@ -1,5 +1,6 @@
 <p-toast></p-toast>
 <p-toast position="top-center" key="tc"></p-toast>
+<div class="backgroundimg" style="background-image: url('assets/images/simpleback.jpg')">
 <div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap">
     <div class="font-bold mr-8">🔥 New Inventory!</div>
     <div class="align-items-center hidden lg:flex">
@@ -10,7 +11,7 @@
     </a>
 
 </div>
-<div class="relative p-8 overflow-hidden bg-no-repeat bg-cover" style="background-image: url('assets/images/simpleback.jpg')">
+<div class="relative p-8 overflow-hidden bg-no-repeat bg-cover" >
     <div class="text-center my-6 relative">
         <div class="text-6xl font-bold mb-1 text-white">Find The Best Deals</div>
         <div class="text-6xl text-blue-400 font-bold mb-4">In Your Area</div>
@@ -22,19 +23,27 @@
         </div>
     </div>
 </div>
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
-    <div class="grid -mt-3 -ml-3 -mr-3">
-        <div class="col-12 md:col-6 lg:col-4 xl:col-2 border-bottom-1 surface-border md:border-bottom-none"    *ngFor="let card of cards.slice(0,6);">
-            <div class="p-2">
-                <img src="../../../assets/images/topps1.png" class="w-full mb-3" />
-                <div class="text-900 text-xl font-medium mb-2">{{card.cardName}}</div>
-                <div class="text-900 text-xl font-medium mb-2">{{card.cardBrand}}</div>
-                <div class="mb-2">
-                    <span class="text-600">{{card.cardPrice}}</span>
+<p-carousel [value]="cards" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template let-card pTemplate="item">
+        <div class="product-item">
+            <div class="product-item-content" style="background-color: aliceblue;">
+                <div class="mb-3">
+                    <img src="../../../assets/images/topps1.png" [alt]="card.cardName" class="product-image" />
+                </div>
+                <div>
+                    <h4 class="mb-1">{{card.cardName}}</h4>
+                    <h6 class="mt-0 mb-3">${{card.cardPrice}}</h6>
+                    <div class="car-buttons mt-5">
+                        <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search"></p-button>
+                        <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-star-fill"></p-button>
+                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-template>
+</p-carousel>
 </div>
-
 

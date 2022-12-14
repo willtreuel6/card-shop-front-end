@@ -11,12 +11,14 @@ import { EmailService } from 'src/app/services/email.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
 
   cards: any = [];
+
+  boxes: any = [];
 
   emails: any = [];
 
@@ -26,7 +28,8 @@ export class HomeComponent implements OnInit {
   responsiveOptions : any;
 
 
-  constructor(private cardService: CardService, private router: Router, private emailService : EmailService, private messageService:MessageService) {
+  constructor(private cardService: CardService, private router: Router, private emailService : EmailService, private messageService:MessageService, 
+    private boxService : BoxService) {
     
    }
 
@@ -36,6 +39,11 @@ export class HomeComponent implements OnInit {
     });
     console.log(this.cards)
     console.log(this.email);
+
+    this.boxService.getBoxList()
+    .subscribe(data => { 
+      this.boxes = data;
+    })
 
   }
 
