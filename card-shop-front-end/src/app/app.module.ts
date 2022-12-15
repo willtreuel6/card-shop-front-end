@@ -45,6 +45,7 @@ import { CardInventoryComponent } from './components/card-inventory/card-invento
 import { AdminEmailComponent } from './components/admin-email/admin-email.component';
 import { AdminControlsComponent } from './components/admin-controls/admin-controls.component';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { SearchfilterPipe } from './pipes/searchfilter.pipe';
 
  
 
@@ -68,7 +69,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
     FooterComponent,
     CardInventoryComponent,
     AdminEmailComponent,
-    AdminControlsComponent
+    AdminControlsComponent,
+    SearchfilterPipe
 
 
 
