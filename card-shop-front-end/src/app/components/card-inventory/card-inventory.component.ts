@@ -34,7 +34,11 @@ export class CardInventoryComponent implements OnInit {
 
   searchTerm = '';
 
+
+  
+
   constructor(private cardService : CardService, private primengConfig : PrimeNGConfig) {
+
    }
 
   ngOnInit(): void {
@@ -46,6 +50,8 @@ export class CardInventoryComponent implements OnInit {
     ];
 
     this.primengConfig.ripple = true;
+
+
   }
 
   reloadData(){
