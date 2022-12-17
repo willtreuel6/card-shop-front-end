@@ -34,6 +34,12 @@ export class CardInventoryComponent implements OnInit {
 
   searchTerm = '';
 
+  searchTermSport = '';
+
+  searchTermBrand = '';
+
+  searchTermYear = '';
+
 
   
 
@@ -80,6 +86,21 @@ export class CardInventoryComponent implements OnInit {
   search(value: string): void{
     this.cards = this.allCards.filter((val: { cardName: string }) =>
     val.cardName.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  searchSport(value: string): void{
+    this.cards = this.allCards.filter((val: { cardSport: string }) =>
+    val.cardSport.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  searchBrand(value: string): void{
+    this.cards = this.allCards.filter((val: { cardBrand: string }) =>
+    val.cardBrand.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  searchYear(value: string): void{
+    this.cards = this.allCards.filter((val: { cardYear: number }) =>
+    val.cardYear.toString().includes(value.toLowerCase()))
   }
   
 
