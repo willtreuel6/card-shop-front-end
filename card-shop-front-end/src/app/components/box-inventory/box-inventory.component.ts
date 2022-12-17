@@ -24,6 +24,14 @@ export class BoxInventoryComponent implements OnInit {
 
   sortKey : string;
 
+  allBoxes : any = [];
+
+  searchTerm = '';
+
+  searchTermSport = "";
+
+  searchTermYear = '';
+
 
   constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig) { }
 
@@ -35,6 +43,8 @@ export class BoxInventoryComponent implements OnInit {
     this.boxService.getBoxList()
     .subscribe(res => {
       this.boxes = res
+      this.allBoxes = this.boxes;
+
     });
     console.log(this.boxes);
   }
@@ -50,6 +60,21 @@ export class BoxInventoryComponent implements OnInit {
       this.sortOrder = 1;
       this.sortField = value;
     }
+  }
+
+  search(value: string): void{
+    this.boxes = this.allBoxes.filter((val: { boxName: string }) =>
+    val.boxName.toLowerCase().includes(value.toLowerCase()));
+  }
+
+  searchSport(value: string) : void{
+    this.boxes = this.allBoxes.filter((val: {boxSport: string}) =>
+    val.boxSport.toLowerCase().includes(value.toLowerCase()));
+  }
+
+  searchYear(value : string) : void{
+    this.boxes = this.allBoxes.filter((val: {boxYear: string}) =>
+    val.boxYear.toString().includes(value));
   }
 
 
