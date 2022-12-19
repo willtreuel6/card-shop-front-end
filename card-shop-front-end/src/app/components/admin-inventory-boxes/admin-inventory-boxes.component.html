@@ -32,6 +32,7 @@
                 </th>
                 <th pSortableColumn="boxName" style="min-width:15rem">Name <p-sortIcon field="boxName"></p-sortIcon></th>
                 <th pSortableColumn="boxYear">Year <p-sortIcon field="boxYear"></p-sortIcon></th>
+                <th>Year</th>
                 <th pSortableColumn="boxBrand" style="min-width:10rem">Brand <p-sortIcon field="boxBrand"></p-sortIcon></th>
                 <th pSortableColumn="boxSport" style="min-width:10rem">Sport <p-sortIcon field="boxSport"></p-sortIcon></th>
                 <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
@@ -46,7 +47,7 @@
                 </td>
                 <td>{{box.boxName}}</td>
                 <td>{{box.boxYear}}</td>
-                <!--<td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>-->
+                <td><img [src]="box.boxImage" [alt]="box.boxName" width="100" class="shadow-4" /></td>
                 <td>{{box.boxBrand}}</td>
                 <td>{{box.boxSport}}</td>
                 <td>{{box.boxPrice | currency:'USD'}}</td>
