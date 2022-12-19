@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { About } from '../models/about';
 import { Contact } from '../models/contact';
+import { Faq } from '../models/faq';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class AdminControlsService {
   private homeUrl = 'http://localhost:8081/api/home';
 
   private footerUrl = 'http://localhost:8081/api/footer';
+
+  private faqUrl = 'http://localhost:8081/api/faq';
 
   constructor(private http : HttpClient) { }
 
@@ -57,5 +60,13 @@ export class AdminControlsService {
 
   updateFooter(footer : object) : Observable<object>{
     return this.http.put(`${this.footerUrl}`, footer);
+  }
+
+  getFaq() : Observable<object>{
+    return this.http.get(`${this.faqUrl}`);
+  }
+
+  updateFaq(faq : Faq){
+    return this.http.put(`${this.faqUrl}`, faq);
   }
 }
