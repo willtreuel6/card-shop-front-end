@@ -195,6 +195,108 @@
     </ng-template>
 </p-dialog>
 
+<p-table [value]="faqInfoSet">
+    <ng-template pTemplate="header">
+         <tr>
+            <th style="min-width:15rem">FAQ</th>
+            <th style="min-width:15rem">Faq Header Bold</th>
+            <th style="min-width:10rem">Faq Description</th>
+            <th style="min-width:10rem">Faq Question 1</th>
+            <th style="min-width:10rem">Faq Answer 1</th>
+            <th style="min-width:10rem">Faq Question 2</th>
+            <th style="min-width:10rem">Faq Answer 2</th>
+            <th style="min-width:10rem">Faq Question 3</th>
+            <th style="min-width:10rem">Faq Answer 3</th>
+            <th style="min-width:10rem">Faq Question 4</th>
+            <th style="min-width:10rem">Faq Answer 4</th>
+            <th style="min-width:10rem">Faq Footer Bold</th>
+            <th style="min-width:10rem">Faq Footer Description</th>
+
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-faqInfo>
+        <tr>
+            <td></td>
+            <td>{{faqInfo.faqBoldHeader}}</td>
+            <td>{{faqInfo.faqDescription}}</td>
+            <td>{{faqInfo.faqQOne}}</td>
+            <td>{{faqInfo.faqAOne}}</td>
+            <td>{{faqInfo.faqQTwo}}</td>
+            <td>{{faqInfo.faqATwo}}</td>
+            <td>{{faqInfo.faqQThree}}</td>
+            <td>{{faqInfo.faqAThree}}</td>
+            <td>{{faqInfo.faqQFour}}</td>
+            <td>{{faqInfo.faqAFour}}</td>
+            <td>{{faqInfo.faqBoldFoot}}</td>
+            <td>{{faqInfo.faqFootDescription}}</td>
+            
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editFaq(faqInfo)"></button>
+            </td>
+                
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="faqInfoDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="footerBold">FAQ Bold Header</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqBoldHeader" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Description</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqDescription" required rows="3" cols="20"></textarea>
+        </div>     
+        <div class="field">
+            <label for="footerBold">FAQ Q 1</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqQOne" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Answer 1</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqAOne" required rows="3" cols="20"></textarea>
+        </div>  
+        <div class="field">
+            <label for="footerBold">FAQ Q 2</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqQTwo" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Answer 2</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqATwo" required rows="3" cols="20"></textarea>
+        </div>  
+        <div class="field">
+            <label for="footerBold">FAQ Q 3</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqQThree" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Answer 3</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqAThree" required rows="3" cols="20"></textarea>
+        </div>  
+        <div class="field">
+            <label for="footerBold">FAQ Q 4</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqQFour" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Answer 4</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqAFour" required rows="3" cols="20"></textarea>
+        </div>  
+        <div class="field">
+            <label for="footerBold">FAQ Bold Footer</label>
+            <input type="text" pInputText id="footerBold" [(ngModel)]="faqInfo.faqBoldFoot" required autofocus>
+        </div>    
+        <div class="field">
+            <label for="footerBold">FAQ Footer Description</label>
+            <textarea id="footerBold" pInputTextarea [(ngModel)]="faqInfo.faqFootDescription" required rows="3" cols="20"></textarea>
+        </div>  
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideFaqDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveFaqInfo(faqInfo)"></button>
+    </ng-template>
+</p-dialog>
+
 
 
     <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

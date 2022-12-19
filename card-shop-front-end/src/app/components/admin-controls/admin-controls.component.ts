@@ -21,6 +21,8 @@ export class AdminControlsComponent implements OnInit {
 
   footerInfoSet : any = {};
 
+  faqInfoSet : any = {};
+
   contactInfo : Contact;
 
   aboutInfo : About;
@@ -29,6 +31,8 @@ export class AdminControlsComponent implements OnInit {
 
   footerInfo : any;
 
+  faqInfo : any;
+
   contactInfoDialog : boolean = false;
 
   aboutInfoDialog : boolean = false;
@@ -36,6 +40,8 @@ export class AdminControlsComponent implements OnInit {
   homeInfoDialog : boolean = false;
 
   footerInfoDialog : boolean = false;
+
+  faqInfoDialog : boolean = false;
 
   constructor(private adminControlsService : AdminControlsService, private confirmationService : ConfirmationService) { }
 
@@ -68,6 +74,12 @@ export class AdminControlsComponent implements OnInit {
       console.log(footerD);
       this.footerInfoSet = footerD;
     })
+
+    this.adminControlsService.getFaq()
+    .subscribe(faqD => {
+      console.log(faqD)
+      this.faqInfoSet = faqD;
+    })
   }
 
 
@@ -95,6 +107,12 @@ export class AdminControlsComponent implements OnInit {
     console.log(footerInfo);
   }
 
+  editFaq(faqInfo : object){
+    this.faqInfoDialog = true;
+    this.faqInfo = {...faqInfo};
+    console.log(faqInfo);
+  }
+
   hideContactDialog(){
     this.contactInfoDialog = false;
 
@@ -110,6 +128,10 @@ export class AdminControlsComponent implements OnInit {
 
   hideFooterDialog(){
     this.footerInfoDialog = false;
+  }
+
+  hideFaqDialog(){
+    this.faqInfoDialog = false;
   }
 
   saveContactInfo(info : any){
@@ -179,5 +201,23 @@ export class AdminControlsComponent implements OnInit {
     })
     this.footerInfoDialog = false;
   }
+
+  saveFaqInfo(info : any){
+    console.log(info);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to change the faq page?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triengle",
+      accept: () => {
+        this.adminControlsService.updateFaq(info).subscribe(faqD => {
+          console.log("Inside Footer");
+          console.log(faqD);
+          this.reloadData();
+        })
+      }
+    })
+    this.faqInfoDialog = false;
+  }
+
 
 }
