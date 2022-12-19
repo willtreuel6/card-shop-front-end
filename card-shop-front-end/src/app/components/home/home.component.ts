@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Avatar } from 'primeng/avatar';
+import { AvatarGroup } from 'primeng/avatargroup';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/models/card';
 import { Email } from 'src/app/models/email';
@@ -13,15 +15,19 @@ import { EmailService } from 'src/app/services/email.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [MessageService]
+  providers: [MessageService, Avatar, AvatarGroup]
 })
 export class HomeComponent implements OnInit {
 
   cards: any = [];
 
+  example : string = "hello";
+
   boxes: any = [];
 
   emails: any = [];
+
+  faqs: any = [];
 
   @Input('ngModel')
   email : Email = {};
@@ -52,6 +58,12 @@ export class HomeComponent implements OnInit {
     .subscribe(homeD => {
       this.adminControls = homeD;
       console.log(homeD);
+    })
+
+    this.adminService.getFaq()
+    .subscribe(faqD => {
+      this.faqs = faqD;
+      console.log(faqD);
     })
 
 
