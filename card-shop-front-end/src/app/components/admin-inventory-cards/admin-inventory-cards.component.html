@@ -31,6 +31,7 @@
                </th>
                <th pSortableColumn="cardName" style="min-width:15rem">Name <p-sortIcon field="cardName"></p-sortIcon></th>
                <th pSortableColumn="cardYear">Year <p-sortIcon field="cardYear"></p-sortIcon></th>
+               <th>Image</th>
                <th pSortableColumn="cardBrand" style="min-width:10rem">Brand <p-sortIcon field="cardBrand"></p-sortIcon></th>
                <th pSortableColumn="cardSport" style="min-width:10rem">Sport <p-sortIcon field="cardSport"></p-sortIcon></th>
                <th pSortableColumn="cardPrice">Price <p-sortIcon field="cardPrice"></p-sortIcon></th>
@@ -44,7 +45,7 @@
                </td>
                <td>{{card.cardName}}</td>
                <td>{{card.cardYear}}</td>
-               <!--<td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>-->
+               <td><img [src]="card.cardImage" [alt]="card.cardName" width="100" class="shadow-4" /></td>
                <td>{{card.cardBrand}}</td>
                <td>{{card.cardSport}}</td>
                <td>{{card.cardPrice | currency:'USD'}}</td>
