@@ -46,6 +46,8 @@ import { AdminEmailComponent } from './components/admin-email/admin-email.compon
 import { AdminControlsComponent } from './components/admin-controls/admin-controls.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { SearchfilterPipe } from './pipes/searchfilter.pipe';
+import { Avatar, AvatarModule } from 'primeng/avatar';
+import { AvatarGroup, AvatarGroupModule } from 'primeng/avatargroup';
 
  
 
@@ -103,7 +105,10 @@ import { SearchfilterPipe } from './pipes/searchfilter.pipe';
     RippleModule,
     ReactiveFormsModule,
     CarouselModule,
-    MultiSelectModule
+    MultiSelectModule,
+    AccordionModule,
+    AvatarGroupModule,
+    AvatarModule
 
   ],
   providers: [],
