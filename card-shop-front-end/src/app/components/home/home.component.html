@@ -41,25 +41,21 @@
         </div>
     </ng-template>
 </p-carousel>
-<div class="surface-section px-4 py-6 md:px-6">
-    <div class="text-2xl text-900 font-bold mb-2 text-center">Frequently Asked Questions</div>
-    <div class="text-700 line-height-3 mb-6 text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+<div class="surface-section px-4 py-6 md:px-6" *ngFor="let faq of faqs">
+    <div class="text-2xl text-900 font-bold mb-2 text-center">{{faq.faqBoldHeader}}</div>
+    <div class="text-700 line-height-3 mb-6 text-center">{{faq.faqDescription}}</div>
     <p-accordion styleClass="mb-6" [activeIndex]="0">
-        <p-accordionTab header="{{example}}">
-            <div class="line-height-3">Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <p-accordionTab header="{{faq.faqQOne}}">
+            <div class="line-height-3">{{faq.faqAOne}}</div>
         </p-accordionTab>
-        <p-accordionTab header="Question 2">
-            <div class="line-height-3">Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <p-accordionTab header="{{faq.faqQTwo}}">
+            <div class="line-height-3">{{faq.faqATwo}}</div>
         </p-accordionTab>
-        <p-accordionTab header="Question 3">
-            <div class="line-height-3">Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <p-accordionTab header="{{faq.faqQThree}}">
+            <div class="line-height-3">{{faq.faqAThree}}</div>
         </p-accordionTab>
-        <p-accordionTab header="Question 4">
-            <div class="line-height-3">Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+        <p-accordionTab header="{{faq.faqQFour}}">
+            <div class="line-height-3">{{faq.faqAFour}}</div>
         </p-accordionTab>
     </p-accordion>
     <div class="border-1 border-round surface-border p-5 surface-50 flex flex-column align-items-center">
@@ -70,11 +66,12 @@
             <p-avatar image="../../../assets/images/avatars/avatar-m-4.png" shape="circle" size="large"></p-avatar>
             <p-avatar image="../../../assets/images/avatars/avatar-f-3.png" shape="circle" size="large"></p-avatar>
         </p-avatarGroup>
-        <div class="font-medium text-xl mt-5 mb-3">Still Have Questions?</div>
-        <p class="text-700 line-height-3 mt-0 mb-5">Risus nec feugiat in fermentum posuere urna nec. Posuere sollicitudin aliquam ultrices sagittis.</p>
+        <div class="font-medium text-xl mt-5 mb-3">{{faq.faqBoldFoot}}</div>
+        <p class="text-700 line-height-3 mt-0 mb-5">{{faq.faqFootDescription}}</p>
         <button pButton pRipple label="Contact Us" icon="pi pi-send" class="p-button-help" routerLink="contact"></button>
     </div>
 </div>
+
 </div>
 
 
