@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PrimeNGConfig, SelectItem } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Box } from 'src/app/models/box';
@@ -33,7 +34,7 @@ export class BoxInventoryComponent implements OnInit {
   searchTermYear = '';
 
 
-  constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig) { }
+  constructor(private boxService : BoxService, private primengConfig: PrimeNGConfig, private router : Router) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -76,6 +77,7 @@ export class BoxInventoryComponent implements OnInit {
     this.boxes = this.allBoxes.filter((val: {boxYear: string}) =>
     val.boxYear.toString().includes(value));
   }
+
 
 
 

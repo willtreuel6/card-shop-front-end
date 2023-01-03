@@ -21,7 +21,7 @@
             </div>
         </ng-template>
         <ng-template let-box pTemplate="listItem">
-            <div class="p-col-12">
+            <div class="p-col-12"  [routerLink] = "['/boxinventory',box.boxId+'-'+box.boxName]" class="nav-link" style="cursor: pointer;">
                 <div class="product-list-item">
                     <img src="{{box.boxImage}}" [alt]="box.boxName"/>
                     <div class="product-list-detail">
@@ -36,8 +36,8 @@
             </div>
         </ng-template>
         <ng-template let-box pTemplate="gridItem">
-            <div class="col-12 md:col-4">
-                <div class="product-grid-item card">
+            <div class="col-12 md:col-4" [routerLink] = "['/boxinventory',box.boxId+'-'+box.boxName]" style="cursor: pointer;">
+                <div class="product-grid-item card" >
                     <div class="product-grid-item-top">
                         <div>
                             <i class="pi pi-tag product-category-icon"></i>
@@ -57,3 +57,4 @@
             </div>
         </ng-template>
     </p-dataView>
+</div>

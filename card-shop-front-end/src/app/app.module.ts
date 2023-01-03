@@ -48,6 +48,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import { SearchfilterPipe } from './pipes/searchfilter.pipe';
 import { Avatar, AvatarModule } from 'primeng/avatar';
 import { AvatarGroup, AvatarGroupModule } from 'primeng/avatargroup';
+import { BoxdetailsComponent } from './components/boxdetails/boxdetails.component';
 
  
 
@@ -72,7 +73,8 @@ import { AvatarGroup, AvatarGroupModule } from 'primeng/avatargroup';
     CardInventoryComponent,
     AdminEmailComponent,
     AdminControlsComponent,
-    SearchfilterPipe
+    SearchfilterPipe,
+    BoxdetailsComponent
 
 
 

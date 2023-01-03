@@ -9,6 +9,7 @@ import { AdminInventoryComponent } from './components/admin-inventory/admin-inve
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
+import { BoxdetailsComponent } from './components/boxdetails/boxdetails.component';
 import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path : 'boxinventory',
     component : BoxInventoryComponent
+  },
+  {
+    path: 'boxinventory/:id', 
+    component: BoxdetailsComponent
   },
   {
     path : 'cardinventory',
