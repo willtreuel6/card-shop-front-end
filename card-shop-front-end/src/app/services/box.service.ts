@@ -12,7 +12,7 @@ export class BoxService {
   
   
   
-  private baseUrl = "http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/box";
+  private baseUrl = "http://localhost:8081/api/box";
 
   constructor(private http: HttpClient) { }
 

@@ -10,15 +10,15 @@ import { Faq } from '../models/faq';
 })
 export class AdminControlsService {
 
-  private contactUrl = 'http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/contact';
+  private contactUrl = 'http://localhost:8081/api/contact';
 
-  private aboutUrl = 'http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/about';
+  private aboutUrl = 'http://localhost:8081/api/about';
 
-  private homeUrl = 'http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/home';
+  private homeUrl = 'http://localhost:8081/api/home';
 
-  private footerUrl = 'http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/footer';
+  private footerUrl = 'http://localhost:8081/api/footer';
 
-  private faqUrl = 'http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/faq';
+  private faqUrl = 'http://localhost:8081/api/faq';
 
   constructor(private http : HttpClient) { }
 

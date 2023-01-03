@@ -9,7 +9,7 @@ import { Card } from '../models/card';
 })
 export class CardService {
 
-  private baseUrl = "http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/card";
+  private baseUrl = "http://localhost:8081/api/card";
 
   constructor(private http: HttpClient) { }
 

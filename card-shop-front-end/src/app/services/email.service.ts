@@ -9,7 +9,7 @@ import { Email } from '../models/email';
 export class EmailService {
 
 
-  private baseUrl = "http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/email/";
+  private baseUrl = "http://localhost:8081/api/email/";
 
   constructor(private http : HttpClient) { }
 

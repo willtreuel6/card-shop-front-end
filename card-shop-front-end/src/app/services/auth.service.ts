@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class AuthService {
 
-  private baseUrl : string = "http://cardshopapp-env.eba-2ct6w5pc.us-east-1.elasticbeanstalk.com/api/admin";
+  private baseUrl : string = "http://localhost:8081/api/admin";
 
   isAuthenticate : boolean = false;
 
