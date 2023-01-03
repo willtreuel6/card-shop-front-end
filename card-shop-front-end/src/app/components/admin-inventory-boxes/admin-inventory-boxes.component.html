@@ -32,7 +32,7 @@
                 </th>
                 <th pSortableColumn="boxName" style="min-width:15rem">Name <p-sortIcon field="boxName"></p-sortIcon></th>
                 <th pSortableColumn="boxYear">Year <p-sortIcon field="boxYear"></p-sortIcon></th>
-                <th>Year</th>
+                <th>Image</th>
                 <th pSortableColumn="boxBrand" style="min-width:10rem">Brand <p-sortIcon field="boxBrand"></p-sortIcon></th>
                 <th pSortableColumn="boxSport" style="min-width:10rem">Sport <p-sortIcon field="boxSport"></p-sortIcon></th>
                 <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
@@ -93,12 +93,16 @@
             <label for="boxDescription">Box Description</label>
             <textarea id="boxDescription" pInputTextarea [(ngModel)]="box.boxDescription" required rows="3" cols="20"></textarea>
         </div>
+        <label>
+            <input type="file" name="fileUpload" (change)="setFile($event)"/>
+        </label>
         
     </ng-template>
 
     <ng-template pTemplate="footer">
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveBox(box)"></button>
+        
     </ng-template>
 
 

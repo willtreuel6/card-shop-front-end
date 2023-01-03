@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Box } from 'src/app/models/box';
 import { BoxService } from 'src/app/services/box.service';
+import { S3ServiceService } from 'src/app/services/s3-service.service';
 
 @Component({
   selector: 'app-admin-inventory-boxes',
@@ -36,10 +37,13 @@ export class AdminInventoryBoxesComponent implements OnInit {
 
   statuses : any[] = [];
 
-  payload : any = {}
+  payload : any = {};
+
+  imageFile : any;
 
 
-  constructor(private boxService : BoxService, private confirmationService : ConfirmationService, private messageService : MessageService) { }
+
+  constructor(private boxService : BoxService, private confirmationService : ConfirmationService, private messageService : MessageService,private s3Service: S3ServiceService) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -95,6 +99,7 @@ export class AdminInventoryBoxesComponent implements OnInit {
       header: "Confirm",
       icon: "pi pi-exclamation-triangle",
       accept: ()  => {
+        this.s3Service.uploadFile(this.imageFile);
         this.boxService.updateBox(box).subscribe(data => {
           console.log(data);
           this.reloadData();
@@ -120,6 +125,16 @@ export class AdminInventoryBoxesComponent implements OnInit {
     })
     this.newBoxDialog = false;
 
+  }
+
+  setFile(e : any){
+    this.imageFile = e.target.files[0];
+    console.log(this.imageFile)
+    this.box.boxImage = '../../../assets/images/' + this.imageFile.name;
+  }
+
+  onFileSelect(e: any) {
+    this.s3Service.uploadFile(e.target.files[0]);
   }
 }
 
