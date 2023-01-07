@@ -1,10 +1,10 @@
 <p-toast></p-toast>
 <p-toast position="top-center" key="tc"></p-toast>
 <div class="backgroundimg" style="background-image: url('assets/images/simpleback.jpg')">
-<div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap">
-    <div class="font-bold mr-8">🔥 New Inventory!</div>
+<div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap" *ngFor="let home of adminControls">
+    <div class="font-bold mr-8">{{home.homeBannerBold}}</div>
     <div class="align-items-center hidden lg:flex">
-        <span class="line-height-3">View an always up to date list of our shops inventory.</span>
+        <span class="line-height-3">{{home.homeBannerText}}</span>
     </div>
     <a class="flex align-items-center ml-2 mr-8">
         <span class="underline font-bold" routerLink="/boxinventory" style="cursor: pointer;">Learn More</span>
