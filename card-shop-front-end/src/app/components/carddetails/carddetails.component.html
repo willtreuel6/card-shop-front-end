@@ -2,47 +2,44 @@
     <div class="grid">
         <div class="col-12 lg:col-6 flex justify-content-center">
                     <div class="w-full h-full overflow-hidden ">
-                        <img src="{{box.boxImage}}" class="w-full block"/>
+                        <img src="{{card.cardImage}}" class="w-full block"/>
                     </div>                           
         </div>
         <div class="col-12 lg:col-6 lg:col-6 py-3 lg:pl-5">
             <div class="flex align-items-center justify-content-between mb-4">
-                <span class="text-900 text-4xl font">{{box.boxName}}</span>
+                <span class="text-900 text-4xl font">{{card.cardName}}</span>
                 <span class="inline-flex align-items-center">
                     <i class="pi pi-star-fill text-yellow-500 mr-2"></i>
                     <span class="font-bold text-900">5.0</span>
                 </span>
             </div>
-            <div class="text-700 text-3xl mb-5">${{box.boxPrice}}</div>
+            <div class="text-700 text-3xl mb-5">${{card.cardPrice}}</div>
 
             <div class="flex mb-5">
-                <button pButton label="Back to Inventory" class="p-button-outlined w-6 mr-1" routerLink="/boxinventory"></button>
+                <button pButton label="Back to Inventory" class="p-button-outlined w-6 mr-1" routerLink="/cardinventory"></button>
                 <a  pButton label="Call to Reserve Yours" class="w-6 ml-1" href="tel:+1-888-888-8888"></a>
-                <a  pButton label="Purchase on Ebay" class="p-button-outlined w-6 mr-1" href="{{box.boxEbay}}"></a>
+                <a  pButton label="Purchase on Ebay" class="p-button-outlined w-6 mr-1" href="{{card.cardEbay}}"></a>
             </div>
 
             <p-accordion [activeIndex]="0">
                 <p-accordionTab header="Product Description">
-                    <div class="line-height-3">{{box.boxDescription}}</div>
-                </p-accordionTab>
-                <p-accordionTab header="Current Stock">
-                    <div class="line-height-3">We currently have {{box.boxInStock}} of these in stock.</div>
+                    <div class="line-height-3">{{card.cardDescription}}</div>
                 </p-accordionTab>
                 <p-accordionTab header="Product Info">
                     <div class="line-height-3">
-                        <b>Box Name</b> : {{box.boxName}}
+                        <b>Box Name</b> : {{card.cardName}}
                     </div>
                     <div class="line-height-3">
-                        <b>Brand</b> : {{box.boxBrand}}
+                        <b>Brand</b> : {{card.cardBrand}}
                     </div>
                     <div class="line-height-3">
-                        <b>Sport</b> : {{box.boxSport}}
+                        <b>Sport</b> : {{card.cardSport}}
                     </div>
                     <div class="line-height-3">
-                        <b>Year</b> : {{box.boxYear}}
+                        <b>Year</b> : {{card.cardYear}}
                     </div>
                     <div class="line-height-3">
-                        <b>Price</b> : ${{box.boxPrice}}
+                        <b>Price</b> : ${{card.cardPrice}}
                     </div>
                 </p-accordionTab>
             </p-accordion>

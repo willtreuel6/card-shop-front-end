@@ -7,4 +7,5 @@ export interface Card{
     cardPrice?: string;
     cardDescription?: string;
     cardImage? : string;
+    cardEbay? : string;
 }

@@ -11,6 +11,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { BoxInventoryComponent } from './components/box-inventory/box-inventory.component';
 import { BoxdetailsComponent } from './components/boxdetails/boxdetails.component';
 import { CardInventoryComponent } from './components/card-inventory/card-inventory.component';
+import { CarddetailsComponent } from './components/carddetails/carddetails.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path : 'cardinventory',
     component : CardInventoryComponent
+  },
+  {
+    path: 'cardinventory/:id',
+    component: CarddetailsComponent
   },
   {
     path: 'contact',

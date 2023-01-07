@@ -25,7 +25,7 @@
             </div>
         </ng-template>
         <ng-template let-card pTemplate="listItem">
-            <div class="p-col-12">
+            <div class="p-col-12"  [routerLink] = "['/cardinventory',card.cardId+'-'+card.cardName]" class="nav-link" style="cursor: pointer;">
                 <div class="product-list-item">
                     <img src="{{card.cardImage}}" [alt]="card.cardName"/>
                     <div class="product-list-detail">
@@ -40,7 +40,7 @@
             </div>
         </ng-template>
         <ng-template let-card pTemplate="gridItem">
-            <div class="col-12 md:col-4">
+            <div class="col-12 md:col-4" [routerLink] = "['/cardinventory',card.cardId+'-'+card.cardName]" style="cursor: pointer;">
                 <div class="product-grid-item card">
                     <div class="product-grid-item-top">
                         <div>

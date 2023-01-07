@@ -35,6 +35,7 @@
                <th pSortableColumn="cardBrand" style="min-width:10rem">Brand <p-sortIcon field="cardBrand"></p-sortIcon></th>
                <th pSortableColumn="cardSport" style="min-width:10rem">Sport <p-sortIcon field="cardSport"></p-sortIcon></th>
                <th pSortableColumn="cardPrice">Price <p-sortIcon field="cardPrice"></p-sortIcon></th>
+               <th>Ebay</th>
              <th></th>
            </tr>
        </ng-template>
@@ -49,6 +50,7 @@
                <td>{{card.cardBrand}}</td>
                <td>{{card.cardSport}}</td>
                <td>{{card.cardPrice | currency:'USD'}}</td>
+               <td>{{card.cardEbay}}</td>
                <td>
                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCard(card)"></button>
                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCard(card.cardId)"></button>
@@ -72,6 +74,10 @@
            <label for="cardSport">Card Sport</label>
            <input type="text" pInputText id="cardSport" [(ngModel)]="card.cardSport">
        </div>
+       <div class="field">
+        <label for="cardEbay">Ebay Link</label>
+        <input type="text" pInputText id="cardEbay" [(ngModel)]="card.cardEbay">
+    </div>
        <div class="formgrid grid">
            <div class="field col">
                <label for="cardYear">Card Year</label>
@@ -110,6 +116,10 @@
            <label for="cardSport">Card Sport</label>
            <input type="text" pInputText id="cardSport" [(ngModel)]="card.cardSport">
        </div>
+       <div class="field">
+        <label for="cardEbay">Ebay Link</label>
+        <input type="text" pInputText id="cardEbay" [(ngModel)]="card.cardEbay">
+    </div>
        <div class="formgrid grid">
            <div class="field col">
                <label for="cardYear">Card Year</label>

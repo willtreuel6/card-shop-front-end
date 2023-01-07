@@ -49,6 +49,7 @@ import { SearchfilterPipe } from './pipes/searchfilter.pipe';
 import { Avatar, AvatarModule } from 'primeng/avatar';
 import { AvatarGroup, AvatarGroupModule } from 'primeng/avatargroup';
 import { BoxdetailsComponent } from './components/boxdetails/boxdetails.component';
+import { CarddetailsComponent } from './components/carddetails/carddetails.component';
 
  
 
@@ -74,7 +75,8 @@ import { BoxdetailsComponent } from './components/boxdetails/boxdetails.componen
     AdminEmailComponent,
     AdminControlsComponent,
     SearchfilterPipe,
-    BoxdetailsComponent
+    BoxdetailsComponent,
+    CarddetailsComponent
 
 
 

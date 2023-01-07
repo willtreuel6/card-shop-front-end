@@ -37,6 +37,7 @@
                 <th pSortableColumn="boxSport" style="min-width:10rem">Sport <p-sortIcon field="boxSport"></p-sortIcon></th>
                 <th pSortableColumn="boxPrice">Price <p-sortIcon field="boxPrice"></p-sortIcon></th>
                 <th pSortableColumn="boxInStock" style="min-width:10rem">In Stock <p-sortIcon field="boxInStock"></p-sortIcon></th>
+                <th>Ebay</th>
                 <th></th>
             </tr>
         </ng-template>
@@ -52,6 +53,7 @@
                 <td>{{box.boxSport}}</td>
                 <td>{{box.boxPrice | currency:'USD'}}</td>
                 <td>{{box.boxInStock}}</td>
+                <td>{{box.boxEbay}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editBox(box)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteBox(box.boxId)"></button>
@@ -75,6 +77,10 @@
             <label for="boxSport">Box Sport</label>
             <input type="text" pInputText id="boxSport" [(ngModel)]="box.boxSport">
         </div>
+        <div class="field">
+            <label for="boxEbay">Ebay Link</label>
+            <input type="text" pInputText id="boxEbay" [(ngModel)]="box.boxEbay">
+        </div>
         <div class="formgrid grid">
             <div class="field col">
                 <label for="boxYear">Box Year</label>
@@ -88,6 +94,7 @@
                 <label for="boxInStock">In Stock</label>
                 <p-inputNumber id="boxInStock" [(ngModel)]="box.boxInStock"></p-inputNumber>
             </div>
+
         </div>
         <div class="field">
             <label for="boxDescription">Box Description</label>
@@ -121,6 +128,10 @@
         <div class="field">
             <label for="boxSport">Box Sport</label>
             <input type="text" pInputText id="boxSport" [(ngModel)]="box.boxSport">
+        </div>
+        <div class="field">
+            <label for="boxEbay">Ebay Link</label>
+            <input type="text" pInputText id="boxEbay" [(ngModel)]="box.boxEbay">
         </div>
         <div class="formgrid grid">
             <div class="field col">
