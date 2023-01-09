@@ -45,7 +45,44 @@
                     </div>
                 </div>
             </div>
+    </div>
+    <div>
+        <div class="surface-card p-4 shadow-2 border-round" style="display: inline-block; width: 50%;" *ngFor="let info of contactInfoSet">
+            <div class="font-medium text-3xl text-900 mb-3">Store Hours</div>
+                <ul class="list-none p-0 m-0 border-top-1 surface-border">
+                    <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+                        <div class="text-500 w-full md:w-2 font-medium">Monday</div>
+                        <div class="text-900 w-full md:w-10">{{info.mondayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap">
+                        <div class="text-500 w-full md:w-2 font-medium">Tuesday</div>
+                        <div class="text-900 w-full md:w-10 line-height-3">{{info.tuesdayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+                        <div class="text-500 w-full md:w-2 font-medium">Wednesday</div>
+                        <div class="text-900 w-full md:w-10">{{info.wednesdayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap">
+                        <div class="text-500 w-full md:w-2 font-medium">Thursday</div>
+                        <div class="text-900 w-full md:w-10">{{info.thursdayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+                        <div class="text-500 w-full md:w-2 font-medium">Friday</div>
+                        <div class="text-900 w-full md:w-10">{{info.fridayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap">
+                        <div class="text-500 w-full md:w-2 font-medium">Saturday</div>
+                        <div class="text-900 w-full md:w-10">{{info.saturdayHours}}</div>
+                    </li>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+                        <div class="text-500 w-full md:w-2 font-medium">Sunday</div>
+                        <div class="text-900 w-full md:w-10">{{info.sundayHours}}</div>
+                    </li>
+                </ul>
+            </div>
+            <div style="display: inline-block; width: 50%;" >
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.508365274184!2d-70.76891198414191!3d43.072806579145464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2bf9e51ead135%3A0xe90f31e86ccc7864!2s356%20Islington%20St%2C%20Portsmouth%2C%20NH%2003801!5e0!3m2!1sen!2sus!4v1669838415584!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.508365274184!2d-70.76891198414191!3d43.072806579145464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e2bf9e51ead135%3A0xe90f31e86ccc7864!2s356%20Islington%20St%2C%20Portsmouth%2C%20NH%2003801!5e0!3m2!1sen!2sus!4v1669838415584!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>

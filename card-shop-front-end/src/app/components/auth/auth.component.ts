@@ -57,6 +57,10 @@ export class AuthComponent implements OnInit {
 
   }
 
+  forgotPassword(){
+    this.messageService.add({key: 'tc',severity : 'info',detail: 'Please contact (603)-998-6741'});
+  }
+
 
 
 }

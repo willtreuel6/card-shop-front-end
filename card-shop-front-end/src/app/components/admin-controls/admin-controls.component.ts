@@ -43,6 +43,8 @@ export class AdminControlsComponent implements OnInit {
 
   faqInfoDialog : boolean = false;
 
+  contactHoursDialog : boolean = false;
+
   constructor(private adminControlsService : AdminControlsService, private confirmationService : ConfirmationService) { }
 
   ngOnInit(): void {
@@ -89,6 +91,12 @@ export class AdminControlsComponent implements OnInit {
     console.log(contactInfo);
   }
 
+  editContactHours(contactInfo : object){
+    this.contactHoursDialog = true;
+    this.contactInfo = {...contactInfo};
+    console.log(contactInfo);
+  }
+
   editAbout(aboutInfo : object){
     this.aboutInfoDialog = true;
     this.aboutInfo = {...aboutInfo};
@@ -116,6 +124,10 @@ export class AdminControlsComponent implements OnInit {
   hideContactDialog(){
     this.contactInfoDialog = false;
 
+  }
+
+  hideContactHoursDialog(){
+    this.contactHoursDialog = false;
   }
 
   hideAboutDialog(){
@@ -149,6 +161,23 @@ export class AdminControlsComponent implements OnInit {
       }
     })
     this.contactInfoDialog = false;
+  }
+
+  saveContactHours(info : any){
+    console.log(info);
+    this.confirmationService.confirm({
+      message: "Are you sure you want to change contact hours?",
+      header: "Confirm",
+      icon: "pi pi-exclamation-triangle",
+      accept: ()  => {
+        this.adminControlsService.updateContact(info).subscribe(data => {
+          console.log("inside")
+          console.log(data);
+          this.reloadData();
+        });
+      }
+    })
+    this.contactHoursDialog = false;
   }
 
   saveAboutInfo(info : any){

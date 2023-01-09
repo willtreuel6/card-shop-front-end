@@ -297,9 +297,82 @@
     </ng-template>
 </p-dialog>
 
+<p-table [value]="contactInfoSet">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="min-width:15rem">CONTACT PAGE HOURS</th>
+            <th style="min-width:15rem">Monday Hours</th>
+            <th style="min-width:10rem">Tuesday Hours</th>
+            <th style="min-width:10rem">Wednesday Hours</th>
+            <th style="min-width:10rem">Thursday Hours</th>
+            <th style="min-width:10rem">Friday Hours</th>
+            <th style="min-width:10rem">Saturday Hours</th>
+            <th style="min-width:10rem">Sunday Hours</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contactInfo>
+        <tr>
+            <td></td>
+            <td>{{contactInfo.mondayHours}}</td>
+            <td>{{contactInfo.tuesdayHours}}</td>
+            <td>{{contactInfo.wednesdayHours}}</td>
+            <td>{{contactInfo.thursdayHours}}</td>
+            <td>{{contactInfo.fridayHours}}</td>
+            <td>{{contactInfo.saturdayHours}}</td>
+            <td>{{contactInfo.sundayHours}}</td>
+
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editContactHours(contactInfo)"></button>
+            </td>
+            
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="contactHoursDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="mondayHours">Monday</label>
+            <input type="text" pInputText id="mondayHours" [(ngModel)]="contactInfo.mondayHours">
+        </div>
+        <div class="field">
+            <label for="tuesdayHours">Tuesday</label>
+            <input type="text" pInputText id="tuesdayHours" [(ngModel)]="contactInfo.tuesdayHours" required autofocus>
+        </div>
+        <div class="field">
+            <label for="wednesdayHours">Wednesday</label>
+            <input type="text" pInputText id="wednesdayHours" [(ngModel)]="contactInfo.wednesdayHours">
+        </div>
+        <div class="field">
+            <label for="thursdayHours">Thursday</label>
+            <input type="text" pInputText id="thursdayHours" [(ngModel)]="contactInfo.thursdayHours">
+        </div>
+        <div class="field">
+            <label for="fridayHours">Friday</label>
+            <input type="text" pInputText id="fridayHours" [(ngModel)]="contactInfo.fridayHours">
+        </div>
+        <div class="field">
+            <label for="saturdayHours">Saturday</label>
+            <input type="text" pInputText id="saturdayHours" [(ngModel)]="contactInfo.saturdayHours">
+        </div>
+        <div class="field">
+            <label for="sundayHours">Sunday</label>
+            <input type="text" pInputText id="sundayHours" [(ngModel)]="contactInfo.sundayHours">
+        </div>
+
+        
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideContactHoursDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveContactHours(contactInfo)"></button>
+    </ng-template>
+</p-dialog>
 
 
-    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
 
 
 
