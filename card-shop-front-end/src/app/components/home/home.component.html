@@ -71,6 +71,24 @@
         <button pButton pRipple label="Contact Us" icon="pi pi-send" class="p-button-help" routerLink="contact"></button>
     </div>
 </div>
+<p-carousel [value]="boxes" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template let-box pTemplate="item"><div style="font-size:small">.</div>
+        <div class="product-item">
+            <div class="product-item-content" style="background-color: aliceblue;">
+                <div class="mb-3">
+                    <img src="{{box.boxImage}}" [alt]="box.boxName" class="product-image" />
+                </div>
+                <div>
+                    <h4 class="mb-1">{{box.boxName}}</h4>
+                    <h6 class="mt-0 mb-3">${{box.boxPrice}}</h6>
+                    <div class="car-buttons mt-5">
+                        <button pButton pRipple label="View Inventory" class="p-button font-bold" routerLink="/boxinventory"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
 
 </div>
 
