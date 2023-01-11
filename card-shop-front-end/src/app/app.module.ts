@@ -50,6 +50,7 @@ import { Avatar, AvatarModule } from 'primeng/avatar';
 import { AvatarGroup, AvatarGroupModule } from 'primeng/avatargroup';
 import { BoxdetailsComponent } from './components/boxdetails/boxdetails.component';
 import { CarddetailsComponent } from './components/carddetails/carddetails.component';
+import { AdminheaderComponent } from './components/adminheader/adminheader.component';
 
  
 
@@ -76,7 +77,8 @@ import { CarddetailsComponent } from './components/carddetails/carddetails.compo
     AdminControlsComponent,
     SearchfilterPipe,
     BoxdetailsComponent,
-    CarddetailsComponent
+    CarddetailsComponent,
+    AdminheaderComponent
 
 
 
