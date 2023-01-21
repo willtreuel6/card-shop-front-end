@@ -86,10 +86,22 @@ export class HomeComponent implements OnInit {
   //   console.log(this.emailService.showPath());
   // }
 
-  addHomeEmail(email: Email){
+  reloadEmail(){
+    this.emailService.getEmailList()
+    .subscribe(emailD => {
+      this.emails = emailD;
+      console.log(this.emails)
+    })
+  }
+
+   addHomeEmail(email: Email){
+    this.reloadEmail();
+    console.log(this.emails)
     let duplicate : boolean = false;
+    console.log("INPUT VALUE: " + email.emailAddress)
     for(let eAddress of this.emails){
       if (eAddress['emailAddress'] == email.emailAddress){
+        console.log(eAddress['emailAddress'])
         duplicate = true;
       }
     }
@@ -98,9 +110,11 @@ export class HomeComponent implements OnInit {
       this.emailService.addEmail(email)
       .subscribe(res => {
       });
+      this.reloadEmail();
     }else{
       this.messageService.add({key: 'tc', severity:'info', detail: 'We already have your email on file! Thanks!'});
     }
+    
   }
 }
 
