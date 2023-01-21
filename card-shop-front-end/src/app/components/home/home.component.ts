@@ -66,19 +66,42 @@ export class HomeComponent implements OnInit {
       console.log(faqD);
     })
 
+    this.emailService.getEmailList()
+    .subscribe(emailD => {
+      this.emails = emailD;
+      console.log(this.emails)
+    })
+
 
 
   }
 
-  addHomeEmail(email : Email){
-    this.messageService.add({key: 'tc', severity:'success', detail: 'Thank You'});
-    this.emailService.addEmail(email).subscribe(res => {
-      console.log("service");
-    });
+  // addHomeEmail(email : Email){
+  //   this.messageService.add({key: 'tc', severity:'success', detail: 'Thank You'});
+  //   this.emailService.addEmail(email).subscribe(res => {
+  //     console.log("service");
+  //   });
     
-    console.log(email);
-    console.log(this.emailService.showPath());
-}
+  //   console.log(email);
+  //   console.log(this.emailService.showPath());
+  // }
+
+  addHomeEmail(email: Email){
+    let duplicate : boolean = false;
+    for(let eAddress of this.emails){
+      if (eAddress['emailAddress'] == email.emailAddress){
+        duplicate = true;
+      }
+    }
+    if(duplicate == false){
+      this.messageService.add({key: 'tc', severity:'success', detail: 'Thank You For Adding Your Email'});
+      this.emailService.addEmail(email)
+      .subscribe(res => {
+      });
+    }else{
+      this.messageService.add({key: 'tc', severity:'info', detail: 'We already have your email on file! Thanks!'});
+    }
+  }
 }
 
 
