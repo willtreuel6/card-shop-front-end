@@ -49,7 +49,7 @@
                 <td>{{box.boxSport}}</td>
                 <td>{{box.boxPrice | currency:'USD'}}</td>
                 <td>{{box.boxInStock}}</td>
-                <td>{{box.boxEbay}}</td>
+                <td><div style="max-width: 200px; overflow: hidden;">{{box.boxEbay}}</div></td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editBox(box)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteBox(box.boxId)"></button>
