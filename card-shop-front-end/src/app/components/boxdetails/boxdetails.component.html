@@ -19,7 +19,7 @@
                 <button pButton label="Back to Inventory" class="p-button-outlined w-6 mr-1" routerLink="/boxinventory"></button>
                 <a  pButton label="Call to Reserve Yours" class="w-6 ml-1" href="tel:+1-888-888-8888"></a>
                 
-                <a *ngIf="box.boxEbay" pButton label="Purchase on Ebay" class="p-button-outlined w-6 mr-1" href="{{box.boxEbay}}"></a>
+                <a *ngIf="box.boxEbay" pButton label="Purchase on Ebay" class="p-button-outlined w-6 mr-1" href="{{box.boxEbay}}" target="_blank"></a>
             </div>
 
             <p-accordion [activeIndex]="0">
